@@ -99,9 +99,8 @@
                 android:layout_height="fill_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/home_title_bg_shap"
+                android:background="@drawable/btn_zhuanqian_selector"
                 android:gravity="center"
-                android:text="一共赚钱5元"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -112,9 +111,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/home_title_bg_shap"
+                 android:background="@drawable/btn_zhuanqian_selector"
                 android:gravity="center"
-                android:text="推广用户788人"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
         </LinearLayout>
