@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="#e55107" >
+
+    <ImageButton
+        android:layout_gravity="left"
+        android:id="@+id/titleBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_title_selector"
+        android:paddingLeft="17dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/navigation_ico_back" />
+
+    <TextView
+        android:id="@+id/titleCenterTV"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxWidth="200dp"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</FrameLayout>
