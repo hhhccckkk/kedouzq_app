@@ -27,10 +27,10 @@ import com.hck.zhuanqian.R;
 import com.hck.zhuanqian.bean.Contans;
 import com.hck.zhuanqian.bean.UserBean;
 import com.hck.zhuanqian.data.MyData;
+import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.util.JsonUtils;
 import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.util.MyTools;
-import com.hck.zhuanqian.util.RequestUtils;
 import com.hck.zhuanqian.view.MyToast;
 
 public class MainActivity extends Activity implements OnClickListener {
@@ -106,16 +106,16 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		switch (arg0.getId()) {
 		case R.id.userTuiguang:
-			// startActivity(MainActivity.class);
+			 startActivity(TuiGuangActivity.class);
 			break;
 		case R.id.userMoney:
-
+			 startActivity(ZhuanQianJiLuActivity.class);
 			break;
 		case R.id.homeChouJiang:
 
 			break;
 		case R.id.homeMingxi:
-
+            startActivity(DuiHuanJiLuActivity.class);
 			break;
 		case R.id.homeHelp:
 
@@ -166,7 +166,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		params.put("xh", MyTools.getModel());
 		params.put("sdk", MyTools.getSDK());
 		params.put("ips", "");
-		RequestUtils.addUser(new JsonHttpResponseHandler() {
+		Request.addUser(new JsonHttpResponseHandler() {
 			@Override
 			public void onFailure(Throwable error, String content) {
 				super.onFailure(error, content);

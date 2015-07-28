@@ -18,11 +18,11 @@ import com.hck.zhuanqian.R;
 import com.hck.zhuanqian.bean.Config;
 import com.hck.zhuanqian.bean.UserBean;
 import com.hck.zhuanqian.data.MyData;
+import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.util.AppManager;
 import com.hck.zhuanqian.util.JsonUtils;
 import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.util.MyTools;
-import com.hck.zhuanqian.util.RequestUtils;
 import com.hck.zhuanqian.view.CustomAlertDialog;
 import com.hck.zhuanqian.view.MyToast;
 
@@ -59,7 +59,7 @@ public class SplashActivity extends Activity {
 	 */
 	private void getConfig() {
 
-		RequestUtils.getConfig(new JsonHttpResponseHandler() {
+		Request.getConfig(new JsonHttpResponseHandler() {
 			@Override
 			public void onFailure(Throwable error, String content) {
 				super.onFailure(error, content);
@@ -122,7 +122,7 @@ public class SplashActivity extends Activity {
 		params.put("xh", MyTools.getModel());
 		params.put("sdk", MyTools.getSDK());
 		params.put("ips", "");
-		RequestUtils.addUser(new JsonHttpResponseHandler() {
+		Request.addUser(new JsonHttpResponseHandler() {
 			@Override
 			public void onFailure(Throwable error, String content) {
 				super.onFailure(error, content);

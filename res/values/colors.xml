@@ -8,5 +8,7 @@
     <color name="splash_text_color">#f56d1b</color>
     <color name="gray">#7a7a7a</color>
     <color name="huise">#e5e5e5</color>
+    <color name="main_bg">#ebebeb</color>
+     <color name="text_color">#333333</color>
 
 </resources>

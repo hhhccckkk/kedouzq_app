@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.hck.httpserver.RequestParams;
 import com.hck.zhuanqian.view.TitleBar;
 
 /**
@@ -14,7 +15,8 @@ import com.hck.zhuanqian.view.TitleBar;
  */
 public class BaseActivity extends FragmentActivity {
 	protected TitleBar mTitleBar;
-
+	public RequestParams params;
+	public boolean isOK;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,6 +54,10 @@ public class BaseActivity extends FragmentActivity {
 
 	public String getStringData(int id) {
 		return getResources().getString(id);
+	}
+	public void initTitle(String content) {
+		mTitleBar.setTitleContent(content);
+
 	}
 
 }

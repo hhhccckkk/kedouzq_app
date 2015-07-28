@@ -13,6 +13,6 @@
         android:divider="@null"
         android:listSelector="@null"
         android:scrollbars="none"
-        ptr:ptrHeaderTextColor="@color/black" />
+        ptr:ptrHeaderTextColor="#404040" />
 
 </LinearLayout>

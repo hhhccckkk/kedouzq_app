@@ -82,7 +82,7 @@
                     android:layout_marginTop="8dp"
                     android:text="4555555个"
                     android:textColor="@color/white"
-                    android:textSize="19sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
@@ -102,7 +102,7 @@
                 android:background="@drawable/btn_zhuanqian_selector"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/userTuiguang"
@@ -133,7 +133,7 @@
             android:gravity="center"
             android:text="@string/main_mingxi"
             android:textColor="#404040"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="1dp"

@@ -1,6 +1,4 @@
-package com.hck.zhuanqian.util;
-
-import android.graphics.Point;
+package com.hck.zhuanqian.net;
 
 import com.hck.httpserver.HCKHttpClient;
 import com.hck.httpserver.HCKHttpResponseHandler;
@@ -8,7 +6,7 @@ import com.hck.httpserver.RequestParams;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Urls;
 
-public class RequestUtils {
+public class Request {
 	private static final int TIME_OUT = 15 * 1000;
 	private static HCKHttpClient client = new HCKHttpClient();
 	static {
@@ -16,11 +14,13 @@ public class RequestUtils {
 	}
 
 	private static void post(String method, HCKHttpResponseHandler handler) {
-		client.get(Urls.MAIN_HOST_URL + method, handler);
+		RequestParams params =new RequestParams();
+		post(method,params,handler);
 	}
 
-	public static void post(String method,
-			RequestParams params, HCKHttpResponseHandler handler) {
+	public static void post(String method, RequestParams params,
+			HCKHttpResponseHandler handler) {
+		params.put("password", MyData.key);
 		client.get(Urls.MAIN_HOST_URL + method, params, handler);
 	}
 
@@ -42,6 +42,33 @@ public class RequestUtils {
 	public static void addUser(HCKHttpResponseHandler handler,
 			RequestParams params) {
 		params.put("password", MyData.key);
-		post(Urls.ADD_USER,params,handler);
+		post(Urls.ADD_USER, params, handler);
+	}
+
+	/**
+	 * 获取赚钱记录
+	 * 
+	 * @param handler
+	 * @param params
+	 * @param page
+	 */
+	public static void getZhuanQianJiLu(HCKHttpResponseHandler handler,
+			RequestParams params) {
+		post(Urls.GET_ZHUANQIAN_JILU, params, handler);
+
+	}
+
+	/**
+	 * 获取推广信息.
+	 */
+	public static void getTG(HCKHttpResponseHandler handler,
+			RequestParams params) {
+		post(Urls.GET_TuiGuang_Data, params, handler);
+
+	}
+
+	public static void getDuiHuanJiLu(HCKHttpResponseHandler handler) {
+		post(Urls.GET_DUIHUAN_JILU, handler);
+
 	}
 }

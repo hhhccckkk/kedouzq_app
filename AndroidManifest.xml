@@ -7,7 +7,8 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="21" />
- <uses-permission android:name="android.permission.INTERNET" /> <!-- 读取网络信息权限，用于识别GPRS网络的接入点 -->
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 读取网络信息权限，用于识别GPRS网络的接入点 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 读取手机基本信息权限，用于精确统计用户的机型等信息 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 读写sd卡的权限，用于缓存广告所用到的图片，节省流量，并可获得更好的用户体验 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -51,6 +52,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.hck.zhuanqian.ui.MainActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.ZhuanQianJiLuActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.TuiGuangActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.DuiHuanJiLuActivity" />
     </application>
 
 </manifest>
