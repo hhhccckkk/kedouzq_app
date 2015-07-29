@@ -25,9 +25,9 @@
         android:layout_marginTop="5dp"
         android:textColor="#90f21616"
         android:textSize="14sp" />
-<View 
-    android:layout_height="1dp"
-    android:layout_width="match_parent"
-    android:background="@color/huise"
-    />
+
+     <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/huise" />
 </LinearLayout>

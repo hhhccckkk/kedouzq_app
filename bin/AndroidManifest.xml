@@ -54,7 +54,9 @@
         <activity android:name="com.hck.zhuanqian.ui.MainActivity" />
         <activity android:name="com.hck.zhuanqian.ui.ZhuanQianJiLuActivity" />
         <activity android:name="com.hck.zhuanqian.ui.TuiGuangActivity" />
-        <activity android:name="com.hck.zhuanqian.ui.DuiHuanJiLuActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.DuiHuanActivity" />
+         <activity android:name="com.hck.zhuanqian.ui.DuiHuanQQActivity" />
+         <activity android:name="com.hck.zhuanqian.ui.DuiHuanZFBActivity" />
     </application>
 
 </manifest>

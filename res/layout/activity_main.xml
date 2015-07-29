@@ -125,6 +125,7 @@
         android:orientation="horizontal" >
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/homeMingxi"
             android:layout_width="0dp"
             android:layout_height="fill_parent"

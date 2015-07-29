@@ -106,16 +106,16 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		switch (arg0.getId()) {
 		case R.id.userTuiguang:
-			 startActivity(TuiGuangActivity.class);
+			startActivity(TuiGuangActivity.class);
 			break;
 		case R.id.userMoney:
-			 startActivity(ZhuanQianJiLuActivity.class);
+			startActivity(ZhuanQianJiLuActivity.class);
 			break;
 		case R.id.homeChouJiang:
 
 			break;
 		case R.id.homeMingxi:
-            startActivity(DuiHuanJiLuActivity.class);
+			startActivity(DuiHuanActivity.class);
 			break;
 		case R.id.homeHelp:
 
@@ -130,7 +130,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 			break;
 		case R.id.home_Duihuan:
-
+			startActivity(DuiHuanActivity.class);
 			break;
 		case R.id.home_Tuiguang:
 

@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,7 +16,7 @@ import com.hck.zhuanqian.R;
  * 公用title.
  */
 public class TitleBar extends LinearLayout {
-	private ImageButton mLeftBackBtn; // 左边返回按钮
+	private ImageView mLeftBackBtn; // 左边返回按钮
 	private TextView mCenterTextV; // 中间文本.
 	private Context mContext;
 
@@ -38,7 +39,7 @@ public class TitleBar extends LinearLayout {
 	 */
 	private void init(Context context) {
 		LayoutInflater.from(context).inflate(R.layout.title_bar, this);
-		mLeftBackBtn = (ImageButton) findViewById(R.id.titleBackBtn);
+		mLeftBackBtn = (ImageView) findViewById(R.id.titleBackBtn);
 		mCenterTextV = (TextView) findViewById(R.id.titleCenterTV);
 		setListener();
 	}

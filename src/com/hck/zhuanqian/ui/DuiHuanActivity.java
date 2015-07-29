@@ -10,20 +10,19 @@ import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.util.JsonUtils;
 import com.hck.zhuanqian.util.LogUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
 
-public class DuiHuanJiLuActivity extends BaseActivity {
+public class DuiHuanActivity extends BaseActivity {
 	private ListView listView;
-	private View errorView;
-	private View mLoadingView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_duihuan_jilu);
+		setContentView(R.layout.activity_duihuan);
 		initTitle("最新兑换记录");
 		initView();
 		getDuiHuanJiLuData();
@@ -31,9 +30,7 @@ public class DuiHuanJiLuActivity extends BaseActivity {
 
 	private void initView() {
 		listView = (ListView) findViewById(R.id.dh_list);
-		errorView = LayoutInflater.from(this)
-				.inflate(R.layout.error_view, null);
-		mLoadingView = findViewById(R.id.loading);
+
 	}
 
 	private void getDuiHuanJiLuData() {
@@ -41,7 +38,6 @@ public class DuiHuanJiLuActivity extends BaseActivity {
 			@Override
 			public void onFailure(Throwable error, String content) {
 				super.onFailure(error, content);
-				listView.addHeaderView(errorView);
 			}
 
 			@Override
@@ -49,19 +45,18 @@ public class DuiHuanJiLuActivity extends BaseActivity {
 				super.onSuccess(statusCode, response);
 				LogUtil.D(response.toString());
 				try {
+					isOK = response.getBoolean("isok");
 					if (isOK) {
 						ZhuanQianJiLu zhuanQianJiLu = new ZhuanQianJiLu();
 						zhuanQianJiLu = JsonUtils.parse(response.toString(),
 								ZhuanQianJiLu.class);
 						listView.setAdapter(new DHListAdpter(
-								DuiHuanJiLuActivity.this, zhuanQianJiLu
+								DuiHuanActivity.this, zhuanQianJiLu
 										.getOrderBeans()));
-						LogUtil.D("获取兑换okokoko");
+
 					} else {
-						listView.addHeaderView(errorView);
 					}
 				} catch (Exception e) {
-					listView.addHeaderView(errorView);
 				}
 
 			}
@@ -69,9 +64,15 @@ public class DuiHuanJiLuActivity extends BaseActivity {
 			@Override
 			public void onFinish(String url) {
 				super.onFinish(url);
-				mLoadingView.setVisibility(View.GONE);
 			}
 		});
+	}
+
+	public void duihuanQQ(View view) {
+		startActivity(new Intent(this, DuiHuanQQActivity.class));
+	}
+	public void duihuanZFB(View view) {
+		startActivity(new Intent(this, DuiHuanZFBActivity.class));
 	}
 
 }
