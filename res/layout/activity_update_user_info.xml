@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e5e5e5"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="5dp"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/mm_white_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="昵称:"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/user_nicheng"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mm_ed_bg"
+                android:hint="请输入昵称2—5位"
+                android:paddingLeft="10dp"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="手机号:"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingRight="5dp"
+                    android:text="*用于手机话费充值"
+                    android:textColor="#ff0000" />
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/user_phone"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mm_ed_bg"
+                android:hint="请输入手机号码"
+                android:paddingLeft="10dp"
+                android:textColor="#666666" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="QQ号:"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingRight="5dp"
+                    android:text="*用于Q币充值"
+                    android:textColor="#ff0000" />
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/user_qq"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mm_ed_bg"
+                android:hint="请输入QQ号码"
+                android:paddingLeft="10dp"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="支付宝账号:"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingRight="5dp"
+                    android:text="*用于支付宝兑换"
+                    android:textColor="#ff0000" />
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/user_zhifubao"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mm_ed_bg"
+                android:hint="请输入支付宝账号"
+                android:paddingLeft="10dp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/duihuan_btn_submit_selector"
+                    android:onClick="updateUser"
+                    android:text="确定修改"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="客户QQ:"
+                android:textColor="#404040"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/help_qq_hao_bg"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="1056471646"
+                android:textColor="@color/red"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="赚钱交流群:"
+                android:textColor="#404040"
+                android:textSize="16sp" />
+
+            <Button
+                android:onClick="jiaqun"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/help_jiaqu_qun_bg"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="百度贴吧："
+                android:textColor="#404040"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/help_qq_hao_bg"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="蝌蚪手机赚钱"
+                android:textColor="@color/red"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="10dp"
+        android:background="@color/white" >
+
+        <WebView
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/help_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
+</LinearLayout>
