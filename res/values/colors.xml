@@ -10,5 +10,7 @@
     <color name="huise">#e5e5e5</color>
     <color name="main_bg">#ebebeb</color>
      <color name="text_color">#333333</color>
+     <color name="red">#f21616</color>
+      <color name="text_9999">#999999</color>
 
 </resources>

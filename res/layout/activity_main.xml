@@ -49,9 +49,8 @@
                     android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
-                    android:drawableLeft="@drawable/touxiang"
                     android:gravity="center"
                     android:text="蝌蚪3444"
                     android:textColor="@color/white"
@@ -66,13 +65,14 @@
                 android:orientation="vertical" >
 
                 <TextView
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/main_yue"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/userJinbi"
@@ -82,9 +82,19 @@
                     android:layout_marginTop="8dp"
                     android:text="4555555个"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tuiguang_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
+            
         </LinearLayout>
 
         <LinearLayout
@@ -111,10 +121,10 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                 android:background="@drawable/btn_zhuanqian_selector"
+                android:background="@drawable/btn_zhuanqian_selector"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -125,7 +135,6 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/homeMingxi"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -134,7 +143,8 @@
             android:gravity="center"
             android:text="@string/main_mingxi"
             android:textColor="#404040"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="gone" />
 
         <View
             android:layout_width="1dp"
@@ -179,16 +189,38 @@
             android:layout_marginTop="5dp"
             android:background="#d5d5d5" />
 
-        <TextView
-            android:id="@+id/homeMore"
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@drawable/tv_title_selector"
-            android:gravity="center"
-            android:text="@string/main_more"
-            android:textColor="#404040"
-            android:textSize="14sp" />
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:id="@+id/homeMore"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/tv_title_selector"
+                android:gravity="center"
+                android:text="@string/main_more"
+                android:textColor="#404040"
+                android:textSize="14sp" />
+           <LinearLayout 
+               android:visibility="gone"
+               android:id="@+id/msg_tishi"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_centerInParent="true"
+               >
+            <ImageView
+                android:layout_marginLeft="28dp"
+                android:layout_marginBottom="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/news" />
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -208,48 +240,9 @@
             android:padding="8dp"
             android:scrollHorizontally="true"
             android:singleLine="true"
-            android:text="事实上鉥肝刿肾三国杀说干啥干啥三国杀说干啥干啥说干啥干啥干啥三"
             android:textColor="#898989"
-            android:textSize="14sp" />
-
-        <RelativeLayout
-            android:id="@+id/home_Hongbao"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/white" >
-
-            <ImageView
-                android:id="@+id/home_hb_img"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="8dp"
-                android:src="@drawable/hongbao" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="7dp"
-                android:layout_toRightOf="@+id/home_hb_img"
-                android:text="红包"
-                android:textColor="#404040"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:drawablePadding="5dp"
-                android:drawableRight="@drawable/list_ico_arrow"
-                android:gravity="center_vertical"
-                android:text="拆红包获取金币"
-                android:textColor="#898989"
-                android:textSize="13sp" />
-        </RelativeLayout>
+            android:textSize="14sp"
+            android:visibility="gone" />
 
         <View
             android:layout_width="match_parent"
@@ -261,7 +254,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-             android:background="@color/white" >
+            android:background="@color/white" >
 
             <ImageView
                 android:id="@+id/home_zq_img"
@@ -299,11 +292,57 @@
             android:background="#40d5d5d5" />
 
         <RelativeLayout
+            android:id="@+id/home_hongbao"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white" >
+
+            <ImageView
+                android:id="@+id/home_hb_img"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/hongbao" />
+
+            <TextView
+                android:id="@+id/hongbaoSize"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="7dp"
+                android:layout_toRightOf="@+id/home_hb_img"
+                android:gravity="center_vertical"
+                android:text="红包"
+                android:textColor="#404040"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/list_ico_arrow"
+                android:gravity="center_vertical"
+                android:text="拆红包获取金币"
+                android:textColor="#898989"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#40d5d5d5" />
+
+        <RelativeLayout
             android:id="@+id/home_Duihuan"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-             android:background="@color/white" >
+            android:background="@color/white" >
 
             <ImageView
                 android:id="@+id/home_zq_img2"

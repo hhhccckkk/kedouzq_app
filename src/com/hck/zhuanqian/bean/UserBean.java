@@ -13,10 +13,6 @@ public class UserBean {
 	private String name;
 	@JsonProperty("mac")
 	private String mac;
-	@JsonProperty("shangjia")
-	private String shangjia;
-	@JsonProperty("jhm")
-	private String jhm;
 	@JsonProperty("isok")
 	private int isok;
 	@JsonProperty("tg")
@@ -27,18 +23,61 @@ public class UserBean {
 	private long allKeDouBi;
 	@JsonProperty("xinshou")
 	private boolean isXinShou;
-	@JsonProperty("shareqq")
-	private boolean isShareQQ;
-	@JsonProperty("yaoqingqq")
-	private boolean isYaoQingQQ;
-	@JsonProperty("sharexinlang")
-	private boolean isShareXinLang;
 	@JsonProperty("qq")
 	private String qq;
 	@JsonProperty("zhifubao")
 	private String zhifubao;
 	@JsonProperty("phone")
 	private String phone;
+	@JsonProperty("shangjia1")
+	private long shangjia1;
+	@JsonProperty("shangjia2")
+	private long shangjia2;
+	@JsonProperty("shangjia3")
+	private long shangjia3;
+	@JsonProperty("shangjia4")
+	private long shangjia4;
+	@JsonProperty("shangjia5")
+	private long shangjia5;
+    @JsonProperty("TGMoney")
+    private String TGMoney;
+    
+	public String getTGMoney() {
+        return TGMoney;
+    }
+    public void setTGMoney(String tGMoney) {
+        TGMoney = tGMoney;
+    }
+    public long getShangjia4() {
+		return shangjia4;
+	}
+	public void setShangjia4(long shangjia4) {
+		this.shangjia4 = shangjia4;
+	}
+	public long getShangjia5() {
+		return shangjia5;
+	}
+	public void setShangjia5(long shangjia5) {
+		this.shangjia5 = shangjia5;
+	}
+	public long getShangjia1() {
+		return shangjia1;
+	}
+	public void setShangjia1(long shangjia1) {
+		this.shangjia1 = shangjia1;
+	}
+	public long getShangjia2() {
+		return shangjia2;
+	}
+	public void setShangjia2(long shangjia2) {
+		this.shangjia2 = shangjia2;
+	}
+	public long getShangjia3() {
+		return shangjia3;
+	}
+	public void setShangjia3(long shangjia3) {
+		this.shangjia3 = shangjia3;
+	}
 	public String getQq() {
 		return qq;
 	}
@@ -57,24 +96,7 @@ public class UserBean {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public boolean isShareQQ() {
-		return isShareQQ;
-	}
-	public void setShareQQ(boolean isShareQQ) {
-		this.isShareQQ = isShareQQ;
-	}
-	public boolean isYaoQingQQ() {
-		return isYaoQingQQ;
-	}
-	public void setYaoQingQQ(boolean isYaoQingQQ) {
-		this.isYaoQingQQ = isYaoQingQQ;
-	}
-	public boolean isShareXinLang() {
-		return isShareXinLang;
-	}
-	public void setShareXinLang(boolean isShareXinLang) {
-		this.isShareXinLang = isShareXinLang;
-	}
+	
 	public boolean isXinShou() {
 		return isXinShou;
 	}
@@ -111,18 +133,7 @@ public class UserBean {
 	public void setMac(String mac) {
 		this.mac = mac;
 	}
-	public String getShangjia() {
-		return shangjia;
-	}
-	public void setShangjia(String shangjia) {
-		this.shangjia = shangjia;
-	}
-	public String getJhm() {
-		return jhm;
-	}
-	public void setJhm(String jhm) {
-		this.jhm = jhm;
-	}
+	
 	public int getIsok() {
 		return isok;
 	}

@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/toast_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,10 +17,10 @@
         android:background="@drawable/home_title_bg_shap"
         android:gravity="center"
         android:minHeight="40dp"
-        android:minWidth="110dp"
+        android:minWidth="150dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp" />
+        android:textSize="18sp" />
 
 </LinearLayout>

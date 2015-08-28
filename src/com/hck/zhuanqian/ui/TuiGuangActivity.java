@@ -76,6 +76,7 @@ public class TuiGuangActivity extends BaseActivity {
 	 */
 	private void getTuiGuangData() {
 		params = new RequestParams();
+		LogUtil.D("uid: "+MyData.getData().getUserBean().getId());
 		params.put("uid", MyData.getData().getUserBean().getId() + "");
 		params.put("page", page + "");
 		Request.getTG(new JsonHttpResponseHandler() {

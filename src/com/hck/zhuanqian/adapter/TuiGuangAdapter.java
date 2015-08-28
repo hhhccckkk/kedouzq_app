@@ -57,7 +57,7 @@ public class TuiGuangAdapter extends BaseAdapter {
 		viewHolder.contentTextView.setText("ÕËµ¥: "+bean.getContent());
 		String timeString = bean.getTime();
 		viewHolder.timeTextView.setText(timeString.substring(0, 11));
-		viewHolder.userNameTextView.setText(bean.getUserName());
+		viewHolder.userNameTextView.setText("À´×Ô:"+bean.getUserName());
 		return view;
 	}
 

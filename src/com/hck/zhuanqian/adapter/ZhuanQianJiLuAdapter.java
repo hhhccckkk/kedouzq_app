@@ -48,12 +48,26 @@ public class ZhuanQianJiLuAdapter extends BaseAdapter {
 					.findViewById(R.id.zhuanqian_content);
 			viewHolder.timeTextView = (TextView) view
 					.findViewById(R.id.zhuanqian_time);
+			viewHolder.stateTextView =(TextView) view.findViewById(R.id.state);
 			view.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) view.getTag();
 		}
 		OrderBean bean = null;
 		bean = zhuanQianJiLu.getOrderBeans().get(arg0);
+		boolean state =bean.isChuLi();
+		String addString =null;
+		if (state) {
+			addString=" 已处理";
+			viewHolder.stateTextView.setText(addString);
+			viewHolder.stateTextView.setTextColor(context.getResources().getColor(R.color.text_9999));
+		}
+		else {
+			addString=" 处理中";
+			viewHolder.stateTextView.setText(addString);
+			viewHolder.stateTextView.setTextColor(context.getResources().getColor(R.color.red));
+		}
+		
 		viewHolder.contentTextView.setText(bean.getContent());
 		String timeString = bean.getTime();
 		viewHolder.timeTextView.setText(timeString.substring(0, 11));
@@ -61,7 +75,7 @@ public class ZhuanQianJiLuAdapter extends BaseAdapter {
 	}
 
 	static class ViewHolder {
-		TextView contentTextView;
+		TextView contentTextView,stateTextView;
 		TextView timeTextView;
 	}
 	

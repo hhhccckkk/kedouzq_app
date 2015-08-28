@@ -17,8 +17,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:textColor="#f21616"
-            android:textSize="18sp" />
+            android:textColor="#333333"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tuiguang_time"
@@ -28,7 +28,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:textColor="#90f21616"
+            android:textColor="#999999"
             android:textSize="12sp" />
     </FrameLayout>
 
@@ -40,8 +40,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
-        android:textColor="#90f21616"
-        android:textSize="16sp" />
+        android:textColor="#666666"
+        android:textSize="14sp" />
 
     <View
         android:layout_width="match_parent"

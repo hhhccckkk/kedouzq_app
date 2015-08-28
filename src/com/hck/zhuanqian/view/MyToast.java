@@ -21,7 +21,7 @@ public class MyToast {
 	            sToast = null;
 	        }
 	        sToast = new Toast(MyApplication.context);
-	        sToast.setDuration(Toast.LENGTH_SHORT);
+	        sToast.setDuration(Toast.LENGTH_LONG);
 	        sToast.setGravity(Gravity.CENTER, 0, 0);
 	        sToast.setView(view);
 	        sToast.show();

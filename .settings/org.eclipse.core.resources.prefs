@@ -1,6 +1,16 @@
 eclipse.preferences.version=1
+encoding//assets/1.html=UTF-8
+encoding//src/cn/sharesdk/onekeyshare/theme/classic=UTF-8
+encoding//src/com/hck/zhuanqian/adapter=gbk
+encoding//src/com/hck/zhuanqian/bean=gbk
+encoding//src/com/hck/zhuanqian/data=gbk
+encoding//src/com/hck/zhuanqian/net=gbk
+encoding//src/com/hck/zhuanqian/ui=gbk
 encoding//src/com/hck/zhuanqian/ui/BaseActivity.java=UTF-8
+encoding//src/com/hck/zhuanqian/util=gbk
 encoding//src/com/hck/zhuanqian/util/JsonUtils.java=UTF-8
 encoding//src/com/hck/zhuanqian/util/MyTools.java=UTF-8
 encoding//src/com/hck/zhuanqian/view/CustomAlertDialog.java=UTF-8
 encoding//src/com/hck/zhuanqian/view/TitleBar.java=UTF-8
+encoding/<project>=gbk
+encoding/src=UTF-8

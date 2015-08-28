@@ -7,10 +7,9 @@
     android:orientation="vertical" >
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:layout_margin="10dp"
         xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/zhuanqianList"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@null"

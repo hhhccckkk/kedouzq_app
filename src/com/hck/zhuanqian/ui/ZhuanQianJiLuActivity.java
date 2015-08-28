@@ -88,7 +88,7 @@ public class ZhuanQianJiLuActivity extends BaseActivity {
 	 */
 	private void getDataFromServer() {
 		params = new RequestParams();
-		params.put("id", MyData.getData().getUserBean().getId() + "");
+		params.put("uid", MyData.getData().getUserBean().getId() + "");
 		params.put("page", page + "");
 		Request.getZhuanQianJiLu(new JsonHttpResponseHandler()
 
