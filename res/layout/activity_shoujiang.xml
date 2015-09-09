@@ -2,16 +2,47 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:background="@color/white"
+    android:background="#f0f0f0"
     android:orientation="vertical" >
-<TextView 
-    android:textColor="@color/black"
-    android:textSize="20dp"
-    android:layout_margin="10dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="您有次数 5次 "
-    />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/myPoint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textColor="#ff0000"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/choujiangSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textColor="#ff0000"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="3dp"
+            android:paddingLeft="10dp"
+            android:text="每次需要消耗一次抽奖次数,抽奖次数可以在兑换Q币或者支付宝后，分享给好友即可获取"
+            android:textColor="#ff0000"
+            android:textSize="12sp" />
+    </LinearLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,48 +53,41 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/bigwheelgg" />
+            android:src="@drawable/bigwheelgg"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/main_wheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/zp" />
+
+        <ImageView
+            android:id="@+id/point"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/zp_dianji" />
 
         <ImageView
             android:id="@+id/light"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/light" />
-
-        <ImageView
-            android:id="@+id/main_wheel"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/bigwheel" />
-
-        <ImageView
-            android:id="@+id/point"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/point" />
     </FrameLayout>
 
-    <LinearLayout
+    <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_gravity="bottom"
-        android:orientation="vertical" >
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:background="#ff0000" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:padding="10dp"
-            android:text="抽奖看人品咯 在赚钱区做任务可以随机获取抽奖次数哦"
-            android:textColor="#ff0000"
-            android:textSize="18sp" />
-    </LinearLayout>
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/duihuan_btn_submit_selector"
+        android:gravity="center"
+        android:onClick="getMoney"
+        android:text="赚金币兑换Q币获取抽奖次数"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
 </FrameLayout>

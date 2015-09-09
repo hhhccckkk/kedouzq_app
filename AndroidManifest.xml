@@ -39,7 +39,7 @@
 
     <application
         android:name="com.hck.zhuanqian.ui.MyApplication"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/icon2"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
@@ -78,7 +78,7 @@
         <activity android:name="com.hck.zhuanqian.ui.BeiDuoActivity" />
         <activity android:name="com.hck.zhuanqian.ui.JiongYouActivity" />
         <activity android:name="com.hck.zhuanqian.ui.YeGuoActivity" />
-         <activity android:name="com.hck.zhuanqian.ui.KeKeActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.KeKeActivity" />
         <!-- 点乐广告 -->
         <activity
             android:name="com.dlnetwork.DevNativeActivity"
@@ -252,7 +252,7 @@
         <activity
             android:name="cn.yeeguo.YeeguoOffersActivity"
             android:configChanges="keyboardHidden|orientation" />
-         <!-- 椰果结束 -->
+        <!-- 椰果结束 -->
         <!-- 可可开始 -->
         <meta-data
             android:name="lostip_id"
@@ -276,6 +276,7 @@
             </intent-filter>
         </receiver> <!-- 可可结束 -->
 
+
         <!-- 分享 -->
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -284,7 +285,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" >
             <intent-filter>
-                <data android:scheme="tencent100371282" />
+                <data android:scheme="tencent1104813490" />
 
                 <action android:name="android.intent.action.VIEW" />
 
@@ -292,6 +293,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <!-- 微信分享 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>

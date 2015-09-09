@@ -41,8 +41,16 @@ public class UserBean {
 	private long shangjia5;
     @JsonProperty("TGMoney")
     private String TGMoney;
+    @JsonProperty("choujiang")
+    private int choujiang;
     
-	public String getTGMoney() {
+	public int getChoujiang() {
+        return choujiang;
+    }
+    public void setChoujiang(int choujiang) {
+        this.choujiang = choujiang;
+    }
+    public String getTGMoney() {
         return TGMoney;
     }
     public void setTGMoney(String tGMoney) {

@@ -4,6 +4,7 @@ import android.R.interpolator;
 import android.R.string;
 
 public class Contans {
+    public static final int CHOUJIANG = 101;
 	public static final String HONG_BAO = "ºì°ü";
 	public static final int TYPE_HONGBAO = 100;
 	public static final int TYPE_HONGBAO_MAX_SIZE = 100000000;

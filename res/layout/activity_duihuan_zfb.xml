@@ -69,7 +69,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/duihuan_bg_input_shap"
         android:orientation="horizontal" >
 
@@ -83,164 +83,172 @@
             android:textSize="16sp" />
 
         <EditText
-            android:textSize="14sp"
             android:id="@+id/duihuan_zfb_user_name"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="@null"
             android:hint="请输入支付宝对应的用户姓名"
             android:paddingLeft="10dp"
-            android:textColorHint="#cccccc" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:layout_margin="10dp"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/duihuan_1"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@drawable/duihuan_btn_selector"
-            android:button="@null"
-            android:checked="true"
-            android:gravity="center"
-            android:text="1元"
-            android:textColor="@color/black" />
-
-        <Button
-            android:id="@+id/duihuan_5"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/duihuan_btn_selector"
-            android:button="@null"
-            android:gravity="center"
-            android:text="5元"
-            android:textColor="@color/black" />
-
-        <Button
-            android:id="@+id/duihuan_10"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/duihuan_btn_selector"
-            android:button="@null"
-            android:gravity="center"
-            android:text="10元"
-            android:textColor="@color/black" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/duihuan_20"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@drawable/duihuan_btn_selector"
-            android:button="@null"
-            android:gravity="center"
-            android:text="20元"
-            android:textColor="@color/black" />
-
-        <Button
-            android:id="@+id/duihuan_50"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/duihuan_btn_selector"
-            android:button="@null"
-            android:gravity="center"
-            android:text="50元"
-            android:textColor="@color/black" />
-
-        <Button
-            android:id="@+id/duihuan_100"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/duihuan_btn_selector"
-            android:button="@null"
-            android:gravity="center"
-            android:text="100元"
-            android:textColor="@color/black" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/huise" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/duihuan_need_point"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="需要金币100个"
-            android:textColor="#333333"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/duihuan_error_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="您的金币不足 无法兑换"
-            android:textColor="#f21616"
-            android:textSize="16sp"
-            android:visibility="gone" />
+            android:textColorHint="#cccccc"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:gravity="center"
+        android:background="#ffffff"
         android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/duihuan_submit"
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="45dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/duihuan_btn_submit_selector"
-            android:gravity="center"
-            android:text="确定兑换"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/duihuan_1"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/duihuan_btn_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="1元"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/duihuan_5"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/duihuan_btn_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="5元"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/duihuan_10"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/duihuan_btn_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="10元"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/duihuan_20"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/duihuan_btn_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="20元"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/duihuan_50"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/duihuan_btn_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="50元"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/duihuan_100"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/duihuan_btn_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="100元"
+                android:textColor="@color/black" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/huise" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="3dp"
-            android:text="每次兑换越多，优惠越多,最高8折优惠"
-            android:textColor="#999999"
-            android:textSize="14sp" />
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/duihuan_need_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="需要金币100个"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/duihuan_error_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="您的金币不足 无法兑换"
+                android:textColor="#f21616"
+                android:textSize="16sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/duihuan_submit"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/duihuan_btn_submit_selector"
+                android:gravity="center"
+                android:text="确定兑换"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="3dp"
+                android:text="每次兑换越多，优惠越多,最高8折优惠"
+                android:textColor="#999999"
+                android:textSize="14sp" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -8,14 +8,35 @@ import org.codehaus.jackson.map.JsonMappingException;
 import android.text.TextUtils;
 
 import com.hck.zhuanqian.bean.Config;
+import com.hck.zhuanqian.bean.ShareBean;
 import com.hck.zhuanqian.bean.UserBean;
 import com.hck.zhuanqian.util.JsonUtils;
+import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.util.MyPreferences;
 
 public class MyData {
     public static MyData myData;
     public static final String key = "HCK123hck";
     private UserBean userBean;
+    private ShareBean shareBean;
+
+    public ShareBean getShareBean() {
+        if (shareBean == null) {
+            String share = MyPreferences.getString("share", null);
+            try {
+                if (!TextUtils.isEmpty(share)) {
+                    shareBean = JsonUtils.parse(share, ShareBean.class);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return shareBean;
+    }
+
+    public void setShareBean(ShareBean shareBean) {
+        this.shareBean = shareBean;
+    }
 
     public static MyData getMyData() {
         return myData;
@@ -28,6 +49,7 @@ public class MyData {
     public UserBean getUserBean() {
         if (userBean == null) {
             String userString = MyPreferences.getString("user", null);
+            LogUtil.D("String: "+userString);
             try {
                 if (!TextUtils.isEmpty(userString)) {
                     userBean = JsonUtils.parse(userString, UserBean.class);

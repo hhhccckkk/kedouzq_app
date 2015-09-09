@@ -111,6 +111,7 @@
         android:background="#40d5d5d5" />
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/more_about"
         android:layout_width="match_parent"
         android:layout_height="55dp"

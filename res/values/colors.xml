@@ -12,5 +12,8 @@
      <color name="text_color">#333333</color>
      <color name="red">#f21616</color>
       <color name="text_9999">#999999</color>
+       <color name="dialog_divider">#e0e0e0</color>
+    <color name="dialog_title_color">#333333</color>
+    <color name="dialog_content_color">#666666</color>
 
 </resources>

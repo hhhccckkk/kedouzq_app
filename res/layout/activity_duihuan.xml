@@ -6,6 +6,7 @@
     android:orientation="vertical" >
 
     <RelativeLayout
+        android:id="@+id/duihuan_qq"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal" >
@@ -30,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="兑换Q币"
-                android:textColor="#666666"
+                android:textColor="#333333"
                 android:textSize="18sp" />
 
             <TextView
@@ -39,7 +40,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:text="1000金币=1Q币"
-                android:textColor="#333333"
+                android:textColor="#EE4000"
                 android:textSize="14sp" />
 
             <TextView
@@ -48,12 +49,12 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:text="1Q币起兑换"
-                android:textColor="#333333"
+                android:textColor="#EE4000"
                 android:textSize="14sp" />
         </LinearLayout>
 
         <Button
-            android:layout_width="70dp"
+            android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -63,6 +64,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/duihuan_zfb"
          android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -95,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="兑换支付宝"
-                android:textColor="#666666"
+                android:textColor="#333333"
                 android:textSize="18sp" />
 
             <TextView
@@ -104,7 +106,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:text="1000金币=1元"
-                android:textColor="#333333"
+                android:textColor="#EE4000"
                 android:textSize="14sp" />
 
             <TextView
@@ -113,13 +115,13 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:text="1元起兑换"
-                android:textColor="#333333"
+                android:textColor="#EE4000"
                 android:textSize="14sp" />
         </LinearLayout>
 
         <Button
             
-            android:layout_width="70dp"
+            android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"

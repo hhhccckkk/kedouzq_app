@@ -166,7 +166,7 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
             };
 
             public void onSuccess(int statusCode, JSONObject response) {
-                savePoint(point);
+                savePointHongBao(point);
             };
 
             public void onFinish(String url) {
@@ -175,10 +175,8 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
         });
     }
 
-    private void savePoint(final int point) {
-        LogUtil.D("isxi111111111111： ");
+    private void savePointHongBao(final int point) {
         int isXiTong = hongbao.getIsXiTong();
-        LogUtil.D("isxi： "+isXiTong);
         boolean isTG = true;
         if (isXiTong == 1) {
             isTG = false;
@@ -215,7 +213,7 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
             long nowPoint = MyData.getData().getUserBean().getAllKeDouBi();
             nowPoint = nowPoint + point;
             MyData.getData().getUserBean().setAllKeDouBi(nowPoint);
-            AlertDialogs.alert(this, "恭喜", "拆开红包获取金币 " + point + "个", false);
+            AlertDialogs.alert(this, "我知道了", "拆开红包获取金币 " + point + "个", false);
         } catch (Exception e) {
             MyToast.showCustomerToast("网络异常增加金币失败");
         }

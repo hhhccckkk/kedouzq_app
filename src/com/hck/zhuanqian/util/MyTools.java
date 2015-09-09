@@ -44,20 +44,19 @@ public class MyTools {
 		MyTools.context = context;
 	}
 
-	public static int getScreenHeight() // »ñÈ¡ÆÁÄ»¸ß¶È
+	public static int getScreenHeight() // ï¿½ï¿½È¡ï¿½ï¿½Ä»ï¿½ß¶ï¿½
 	{
 		if (context == null) {
-			Log.e("hck", TAG + "  getScreenHeight: " + "context ²»ÄÜÎª¿Õ");
+			Log.e("hck", TAG + "  getScreenHeight: " + "context ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½");
 			return 800;
 		}
 		display = ((Activity) context).getWindowManager().getDefaultDisplay();
 		return display.getHeight();
 	}
 
-	public static int getScreenWidth() // »ñÈ¡ÆÁÄ»¿í¶È
+	public static int getScreenWidth() // ï¿½ï¿½È¡ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
 	{
 		if (context == null) {
-			Log.e("hck", TAG + "  getScreenHeight: " + "context ²»ÄÜÎª¿Õ");
 			return 480;
 		}
 		display = ((Activity) context).getWindowManager().getDefaultDisplay();
@@ -65,41 +64,41 @@ public class MyTools {
 	}
 
 	public static String getSDK() {
-		return android.os.Build.VERSION.SDK; // SDKºÅ
+		return android.os.Build.VERSION.SDK; // SDKï¿½ï¿½
 
 	}
 
-	public static String getModel() // ÊÖ»úÐÍºÅ
+	public static String getModel() // ï¿½Ö»ï¿½ï¿½Íºï¿½
 	{
 		return android.os.Build.MODEL;
 	}
 
-	public static String getRelease() // androidÏµÍ³°æ±¾ºÅ
+	public static String getRelease() // androidÏµÍ³ï¿½æ±¾ï¿½ï¿½
 	{
 		return android.os.Build.VERSION.RELEASE;
 	}
 
-	public static String getImei(Context context) // »ñÈ¡ÊÖ»úÉí·ÝÖ¤imei
+	public static String getImei(Context context) // ï¿½ï¿½È¡ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ö¤imei
 	{
 		TelephonyManager telephonyManager = (TelephonyManager) context
 				.getSystemService(Context.TELEPHONY_SERVICE);
 		return telephonyManager.getDeviceId();
 	}
 
-	public long totalMemory(int type) // »ñÈ¡ÊÖ»úÄÚ´æ
+	public long totalMemory(int type) // ï¿½ï¿½È¡ï¿½Ö»ï¿½ï¿½Ú´ï¿½
 	{
 		Runtime myRun = Runtime.getRuntime();
 		if (1 == type) {
-			return myRun.totalMemory() / 1024 / 1024; // Ê¹ÓÃµÄÄÚ´æ
-		} else if (2 == type) { // ×î´óÄÚ´æ
+			return myRun.totalMemory() / 1024 / 1024; // Ê¹ï¿½Ãµï¿½ï¿½Ú´ï¿½
+		} else if (2 == type) { // ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
 			return myRun.maxMemory() / 1024 / 1024;
-		} else if (3 == type) { // Ê£ÓàÄÚ´æ
+		} else if (3 == type) { // Ê£ï¿½ï¿½ï¿½Ú´ï¿½
 			return myRun.freeMemory() / 1024 / 1024;
 		}
 		return 0;
 	}
 
-	public static String getVerName(Context context) { // »ñÈ¡°æ±¾Ãû×Ö
+	public static String getVerName(Context context) { // ï¿½ï¿½È¡ï¿½æ±¾ï¿½ï¿½ï¿½ï¿½
 		try {
 			String pkName = context.getPackageName();
 			String versionName = context.getPackageManager().getPackageInfo(
@@ -111,7 +110,7 @@ public class MyTools {
 		return null;
 	}
 
-	public static int getVerCode(Context context) { // »ñÈ¡°æ±¾ºÅ
+	public static int getVerCode(Context context) { // ï¿½ï¿½È¡ï¿½æ±¾ï¿½ï¿½
 		String pkName = context.getPackageName();
 		try {
 			int versionCode = context.getPackageManager().getPackageInfo(
@@ -123,32 +122,32 @@ public class MyTools {
 		return 0;
 	}
 
-	public static boolean isNetworkAvailable(Context context) { // ÅÐ¶ÏÍøÂçÁ¬½ÓÊÇ·ñ¿ÉÓÃ
-		// »ñÈ¡ÊÖ»úËùÓÐÁ¬½Ó¹ÜÀí¶ÔÏó£¨°üÀ¨¶Ôwi-fi,netµÈÁ¬½ÓµÄ¹ÜÀí£©
+	public static boolean isNetworkAvailable(Context context) { // ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½È¡ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½ï¿½ï¿½ó£¨°ï¿½ï¿½ï¿½ï¿½ï¿½wi-fi,netï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ¹ï¿½ï¿½?
 		ConnectivityManager connectivity = (ConnectivityManager) context
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
 		if (connectivity == null)
 			return false;
-		// »ñÈ¡ÍøÂçÁ¬½Ó¹ÜÀíµÄ¶ÔÏó
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
 		NetworkInfo info = connectivity.getActiveNetworkInfo();
 		if (info == null || !info.isConnected())
 			return false;
-		// ÅÐ¶Ïµ±Ç°ÍøÂçÊÇ·ñÒÑ¾­Á¬½Ó
+		// ï¿½Ð¶Ïµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½
 		return (info.getState() == NetworkInfo.State.CONNECTED);
 	}
 
-	public static String trim(String str, int limit) { // ×Ö·û´®³¬³ö¸ø¶¨ÎÄ×ÖÔò½ØÈ¡
+	public static String trim(String str, int limit) { // ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡
 		String mStr = str.trim();
 		return mStr.length() > limit ? mStr.substring(0, limit) : mStr;
 	}
 
-	public static String getTel(Context context) { // »ñÈ¡ÊÖ»úºÅÂë£¬ºÜ¶àÊÖ»ú»ñÈ¡²»µ½
+	public static String getTel(Context context) { // ï¿½ï¿½È¡ï¿½Ö»ï¿½ï¿½ï¿½ë£¬ï¿½Ü¶ï¿½ï¿½Ö»ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 		TelephonyManager telManager = (TelephonyManager) context
 				.getSystemService(Context.TELEPHONY_SERVICE);
 		return telManager.getLine1Number();
 	}
 
-	public static String getMac(Context context) { // »ñÈ¡Ê±»úmacµØÖ·
+	public static String getMac(Context context) { // ï¿½ï¿½È¡Ê±ï¿½ï¿½macï¿½ï¿½Ö·
 		final WifiManager wifi = (WifiManager) context
 				.getSystemService(Context.WIFI_SERVICE);
 		if (wifi != null) {
@@ -163,10 +162,10 @@ public class MyTools {
 	}
 
 	/**
-	 * Œ¢ ÏñËØ ×ª»»³É dp
+	 * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ×ªï¿½ï¿½ï¿½ï¿½ dp
 	 * 
 	 * @param pxValue
-	 *            ÏñËØ
+	 *            ï¿½ï¿½ï¿½ï¿½
 	 * @return dp
 	 */
 	public static int px2dip(int pxValue) {
@@ -175,7 +174,7 @@ public class MyTools {
 	}
 
 	/**
-	 * Œ¢ ®‹ËØ ÞD“Q³É sp
+	 * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Dï¿½Qï¿½ï¿½ sp
 	 * 
 	 * @param pixel
 	 * @return sp
@@ -186,11 +185,11 @@ public class MyTools {
 	}
 
 	/**
-	 * Œ¢ dip ÞD“Q³É®‹ËØ px
+	 * ï¿½ï¿½ dip ï¿½Dï¿½Qï¿½É®ï¿½ï¿½ï¿½ px
 	 * 
 	 * @param dipValue
-	 *            dip ÏñËØµÄÖµ
-	 * @return ®‹ËØ px
+	 *            dip ï¿½ï¿½ï¿½Øµï¿½Öµ
+	 * @return ï¿½ï¿½ï¿½ï¿½ px
 	 */
 	public static int dip2px(float dipValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;
@@ -206,11 +205,11 @@ public class MyTools {
 	}
 
 	/**
-	 * ´«ÈëÒ»¸öview,·µ»ØÒ»¸öintÊý×éÀ´´æ·Å viewÔÚÊÖ»úÆÁÄ»ÉÏ×óÉÏ½ÇµÄ¾ø¶Ô×ø±ê
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½view,ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½intï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ viewï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ÇµÄ¾ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param views
-	 *            ´«ÈëµÄview
-	 * @return ·µ»ØintÐÍÊý×é,location[0]±íÊ¾x,location[1]±íÊ¾y
+	 *            ï¿½ï¿½ï¿½ï¿½ï¿½view
+	 * @return ï¿½ï¿½ï¿½ï¿½intï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,location[0]ï¿½ï¿½Ê¾x,location[1]ï¿½ï¿½Ê¾y
 	 */
 	public static int[] getViewPosition(View view) {
 		int[] location = new int[2];
@@ -219,10 +218,10 @@ public class MyTools {
 	}
 
 	/**
-	 * onTouch½çÃæÊ±Ö¸¼âÔÚviewsÖÐµÄÄÄ¸öviewµ±ÖÐ
+	 * onTouchï¿½ï¿½ï¿½ï¿½Ê±Ö¸ï¿½ï¿½ï¿½ï¿½viewsï¿½Ðµï¿½ï¿½Ä¸ï¿½viewï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param event
-	 *            ontouchÊÂ¼þ
+	 *            ontouchï¿½Â¼ï¿½
 	 * @param views
 	 *            view list
 	 * @return view
@@ -243,35 +242,35 @@ public class MyTools {
 	}
 
 	/**
-	 * ½«´«½øµÄÍ¼Æ¬´æ´¢ÔÚÊÖ»úÉÏ,²¢·µ»Ø´æ´¢Â·¾¶
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½æ´¢ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ø´æ´¢Â·ï¿½ï¿½
 	 * 
 	 * @param photo
-	 *            Bitmap ÀàÐÍ,´«½øµÄÍ¼Æ¬
-	 * @return String ·µ»Ø´æ´¢Â·¾¶
+	 *            Bitmap ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
+	 * @return String ï¿½ï¿½ï¿½Ø´æ´¢Â·ï¿½ï¿½
 	 */
 	public static String savePic(Bitmap photo, String name, String path) {
-		ByteArrayOutputStream baos = new ByteArrayOutputStream(); // ´´½¨Ò»¸ö
+		ByteArrayOutputStream baos = new ByteArrayOutputStream(); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 																	// outputstream
-																	// À´¶ÁÈ¡ÎÄ¼þÁ÷
-		photo.compress(Bitmap.CompressFormat.PNG, 100, baos); // °Ñ bitmap µÄÍ¼Æ¬×ª»»³É
+																	// ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ä¼ï¿½ï¿½ï¿½
+		photo.compress(Bitmap.CompressFormat.PNG, 100, baos); // ï¿½ï¿½ bitmap ï¿½ï¿½Í¼Æ¬×ªï¿½ï¿½ï¿½ï¿½
 																// jpge
-																// µÄ¸ñÊ½·ÅÈëÊä³öÁ÷ÖÐ
+																// ï¿½Ä¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		byte[] byteArray = baos.toByteArray();
 		String saveDir = Environment.getExternalStorageDirectory()
 				.getAbsolutePath();
-		File dir = new File(saveDir + "/" + path); // ¶¨ÒåÒ»¸öÂ·¾¶
-		if (!dir.exists()) { // Èç¹ûÂ·¾¶²»´æÔÚ,´´½¨Â·¾¶
+		File dir = new File(saveDir + "/" + path); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½
+		if (!dir.exists()) { // ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 			dir.mkdir();
 		}
-		File file = new File(saveDir, name + ".png"); // ¶¨ÒåÒ»¸öÎÄ¼þ
+		File file = new File(saveDir, name + ".png"); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½
 		if (file.exists())
-			file.delete(); // É¾³ýÔ­À´ÓÐ´ËÃû×ÖÎÄ¼þ,É¾³ý
+			file.delete(); // É¾ï¿½ï¿½Ô­ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½,É¾ï¿½ï¿½
 		try {
 			file.createNewFile();
 			FileOutputStream fos;
-			fos = new FileOutputStream(file); // Í¨¹ý FileOutputStream ¹ØÁªÎÄ¼þ
-			BufferedOutputStream bos = new BufferedOutputStream(fos); // Í¨¹ý bos
-																		// ÍùÎÄ¼þÀïÐ´¶«Î÷
+			fos = new FileOutputStream(file); // Í¨ï¿½ï¿½ FileOutputStream ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+			BufferedOutputStream bos = new BufferedOutputStream(fos); // Í¨ï¿½ï¿½ bos
+																		// ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
 			bos.write(byteArray);
 			bos.close();
 		} catch (FileNotFoundException e) {
@@ -283,7 +282,7 @@ public class MyTools {
 	}
 
 	/**
-	 * »ØÊÕ bitmap ¼õÐ¡ÏµÍ³Õ¼ÓÃµÄ×ÊÔ´ÏûºÄ
+	 * ï¿½ï¿½ï¿½ï¿½ bitmap ï¿½ï¿½Ð¡ÏµÍ³Õ¼ï¿½Ãµï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½
 	 */
 	public static void destoryBimap(Bitmap photo) {
 		if (photo != null && !photo.isRecycled()) {
@@ -293,11 +292,11 @@ public class MyTools {
 	}
 
 	/**
-	 * Œ¢Ý”Èë×Ö´®×ö md5 ¾Ž´a
+	 * ï¿½ï¿½Ý”ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ md5 ï¿½ï¿½ï¿½a
 	 * 
 	 * @param s
-	 *            : Óû¾Ž´aµÄ×Ö´®
-	 * @return ¾Ž´aááµÄ×Ö´®, ÈçÊ§”¡, ·µ»Ø ""
+	 *            : ï¿½ï¿½aï¿½ï¿½ï¿½Ö´ï¿½
+	 * @return ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½Ö´ï¿½, ï¿½ï¿½Ê§ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ""
 	 */
 	public static String md5(String s) {
 		try {
@@ -322,7 +321,7 @@ public class MyTools {
 		}
 	}
 
-	public static boolean isNumber(char c) { // ÊÇ·ñÊÇÊý×Ö
+	public static boolean isNumber(char c) { // ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		boolean isNumer = false;
 		if (c >= '0' && c <= '9') {
 			isNumer = true;
@@ -330,7 +329,7 @@ public class MyTools {
 		return isNumer;
 	}
 
-	public static boolean isEmail(String strEmail) { // ÊÇ·ñÊÇÕýÈ·µÄÓÊÏäµØÖ·
+	public static boolean isEmail(String strEmail) { // ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·
 		String checkemail = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
 
 		Pattern pattern = Pattern.compile(checkemail);
@@ -340,7 +339,7 @@ public class MyTools {
 		return matcher.matches();
 	}
 
-	public static boolean isNull(String string) // ×Ö·û´®ÊÇ·ñÎª¿Õ
+	public static boolean isNull(String string) // ï¿½Ö·ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
 	{
 		if (null == string || "".equals(string)) {
 			return true;
@@ -348,7 +347,7 @@ public class MyTools {
 		return false;
 	}
 
-	public static boolean isLenghtOk(String string, int max, int min) // ×Ö·û´®³¤¶È¼ì²â
+	public static boolean isLenghtOk(String string, int max, int min) // ï¿½Ö·ï¿½ï¿½È¼ï¿½ï¿½
 	{
 		if (null != string) {
 			if (string.length() > max || string.length() < min) {
@@ -358,7 +357,7 @@ public class MyTools {
 		return true;
 	}
 
-	public static boolean isLenghtOk(String string, int max) // ×Ö·û´®³¤¶ÈÊÇ·ñ
+	public static boolean isLenghtOk(String string, int max) // ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ç·ï¿½
 	{
 		if (null != string) {
 			if (string.length() > max) {
@@ -369,9 +368,9 @@ public class MyTools {
 	}
 
 	/**
-	 * ¶ÁÈ¡×ÊÔ´ÎÄ¼þ
+	 * ï¿½ï¿½È¡ï¿½ï¿½Ô´ï¿½Ä¼ï¿½
 	 */
-	public static String geFileFromAssets(Context context, String fileName) { // ´Ó×ÊÔ´ÎÄ¼þ»ñÈ¡Êý¾Ý
+	public static String geFileFromAssets(Context context, String fileName) { // ï¿½ï¿½ï¿½ï¿½Ô´ï¿½Ä¼ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½
 		if (context == null || MyTools.isNull(fileName)) {
 			return null;
 		}
@@ -392,7 +391,7 @@ public class MyTools {
 		}
 	}
 
-	public static String geFileFromRaw(Context context, int resId) {// ´ÓRawÀïÃæ»ñÈ¡Êý¾Ý
+	public static String geFileFromRaw(Context context, int resId) {// ï¿½ï¿½Rawï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½
 		if (context == null) {
 			return null;
 		}
@@ -414,7 +413,7 @@ public class MyTools {
 	}
 
 	/**
-	 * Ê¹ÓÃÒ»¸ö×Ö·û´®»ñÈ¡Ö¸¶¨³¤¶ÈµÄËæ»úÐÂ×Ö·û´®
+	 * Ê¹ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
 	 */
 	public static String getRandom(char[] sourceChar, int length) {
 		if (sourceChar == null || sourceChar.length == 0 || length < 0) {

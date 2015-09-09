@@ -3,6 +3,8 @@ package com.hck.zhuanqian.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 import com.hck.httpserver.JsonHttpResponseHandler;
 import com.hck.httpserver.RequestParams;
 import com.hck.zhuanqian.R;
@@ -10,12 +12,14 @@ import com.hck.zhuanqian.bean.UserBean;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.util.LogUtil;
+import com.hck.zhuanqian.util.ShareUtil;
 import com.hck.zhuanqian.view.AlertDialogs;
 import com.hck.zhuanqian.view.MyToast;
 import com.hck.zhuanqian.view.Pdialog;
 import com.hck.zhuanqian.view.AlertDialogs.OneBtOnclick;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,7 +44,7 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
 	private TextView errorTextView;
 	private EditText zfbEditText, userEditText;
 	private int zhifubaoSize;
-
+    private int moneySize;;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -88,22 +92,26 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
 		case R.id.duihuan_1:
 			postion = 0;
 			zhifubaoSize = 1;
+			moneySize=1;
 			updateUi();
 			break;
 		case R.id.duihuan_5:
 			postion = 1;
 			zhifubaoSize = 5;
+			moneySize=5;
 			updateUi();
 			break;
 		case R.id.duihuan_10:
 			zhifubaoSize = 10;
 			postion = 2;
+			moneySize=10;
 			updateUi();
 			break;
 		case R.id.duihuan_20:
 			zhifubaoSize = 20;
 			postion = 3;
 			updateUi();
+			moneySize=20;
 			break;
 		case R.id.duihuan_50:
 			zhifubaoSize = 50;
@@ -112,6 +120,7 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
 			break;
 		case R.id.duihuan_100:
 			zhifubaoSize = 100;
+			moneySize=100;
 			postion = 5;
 			updateUi();
 			break;
@@ -202,19 +211,68 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
 		initData();
 	}
 
-	private void showSuccessDialog() {
-		AlertDialogs.alert(this, "下单成功",
-				"下单成功 1-2天内处理完成" + "若有疑问 请在意见反馈处 进行反馈", true,
+	 private void showSuccessDialog() {
+	        final String shareContent = "这个手机赚钱软件，很不错。刚兑换了" + moneySize + "元支付宝，希望大家一起来赚钱,安装就送红包";
+	        AlertDialogs.alert(this, "分享好友", "下单成功." + "分享好友可以获取抽奖次数,还可以发展下线" + "   (注意：分享到qq好友，分享后，请点击留在qq，然后再返回本app，不然获取不到抽奖次数,QQbug)", true,
 
-				new OneBtOnclick() {
+	        new OneBtOnclick() {
 
-					@Override
-					public void callBack(int tag) {
-						finish();
-					}
-				}, 1);
-	}
+	            @Override
+	            public void callBack(int tag) {
+	                ShareUtil.share(DuiHuanZFBActivity.this, shareContent, handler);
+	            }
+	        }, 1);
+	    }
+	 Handler handler = new Handler() {
+	        public void handleMessage(android.os.Message msg) {
+	            if (msg.what == 0) {
+	                MyToast.showCustomerToast("分享失败");
+	            } else if (msg.what == 1) {
+	                MyToast.showCustomerToast("分享成功");
+	                addChouJiangSize();
 
+	            } else if (msg.what == 2) {
+	                MyToast.showCustomerToast("分享取消");
+	            }
+	        };
+	    };
+	    private void addChouJiangSize() {
+
+	        Pdialog.showDialog(this, "请稍等，正在增加抽奖次数", false);
+	        UserBean userBean = MyData.getData().getUserBean();
+	        RequestParams params = new RequestParams();
+	        params.put("uid", userBean.getId() + "");
+	        params.put("cjSize", 1 + "");
+	        Request.updateChouJiangSize(params, new JsonHttpResponseHandler() {
+	            @Override
+	            public void onFailure(Throwable error, String content) {
+	                super.onFailure(error, content);
+	                LogUtil.D("onFailure: " + error + content);
+	                MyToast.showCustomerToast("网络异常 增加抽奖次数失败");
+	            }
+
+	            @Override
+	            public void onSuccess(int statusCode, JSONObject response) {
+	                super.onSuccess(statusCode, response);
+	                LogUtil.D("onSuccess: " + response.toString());
+	                MyToast.showCustomerToast("恭喜您，增加了一次抽奖次数");
+	                updateUserChouJiang();
+	            }
+
+	            @Override
+	            public void onFinish(String url) {
+	                super.onFinish(url);
+	                Pdialog.hiddenDialog();
+	            }
+
+	        });
+	    }
+	    private void updateUserChouJiang() {
+	        UserBean userBean = MyData.getData().getUserBean();
+	        int choujiang = userBean.getChoujiang();
+	        userBean.setChoujiang(choujiang + 1);
+	        MyData.getData().setUserBean(userBean);
+	    }
 	private void updateUi() {
 		changeBtnbg();
 		remindNeedPoint();

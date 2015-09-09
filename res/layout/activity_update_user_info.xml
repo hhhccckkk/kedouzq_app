@@ -142,7 +142,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/mm_ed_bg"
-                android:hint="请输入支付宝账号"
+                android:hint="请输入支付宝账号(非必需)"
                 android:paddingLeft="10dp" />
 
             <LinearLayout
@@ -157,7 +157,6 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="40dp"
                     android:background="@drawable/duihuan_btn_submit_selector"
                     android:onClick="updateUser"

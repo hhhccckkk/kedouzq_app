@@ -34,7 +34,7 @@
                 android:gravity="center"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="1056471646"
+                android:text="@string/kefu"
                 android:textColor="@color/red"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -67,6 +67,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

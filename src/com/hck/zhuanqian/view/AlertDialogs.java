@@ -25,7 +25,7 @@ public class AlertDialogs {
 		public void callBack(int tag);
 	}
 
-	public static void alert(Context context, String title, String content,
+	public static void alert(Context context, String btnText, String content,
 			boolean big, final OneBtOnclick oneBtOnclick, final int tag) {
 		if (aDialog != null && aDialog.isShowing()) {
 			aDialog.dismiss();
@@ -33,11 +33,12 @@ public class AlertDialogs {
 		AlertDialogs.oneBtOnclick = null;
 		AlertDialogs.oneBtOnclick = oneBtOnclick;
 		aDialog = new AlertDialog.Builder(context).create();
-		aDialog.setCancelable(false);
+		aDialog.setCancelable(true);
 		final View view = LayoutInflater.from(context).inflate(R.layout.alert,
 				null);
 		TextView contenTextView = (TextView) view.findViewById(R.id.d_content);
 		Button button = (Button) view.findViewById(R.id.d_button);
+		button.setText(btnText);
 		contenTextView.setText(content);
 		try {
 			aDialog.show();
@@ -45,13 +46,15 @@ public class AlertDialogs {
 		}
 
 		WindowManager.LayoutParams params = aDialog.getWindow().getAttributes();
-		params.width = (int) (MyTools.getScreenWidth() * 0.8); // 设置对话框的宽度为手机屏幕的0.8
+		
 		if (big) {
-			params.height = (int) (MyTools.getScreenHeight() * 0.35);
+			params.height = (int) (MyTools.getScreenHeight() * 0.5);
+			params.width = (int) (MyTools.getScreenWidth() * 0.95);
 		} else {
-			params.height = (int) (MyTools.getScreenHeight() * 0.25);
+		    params.width = (int) (MyTools.getScreenWidth() * 0.65); 
+	        params.height = (int) (MyTools.getScreenHeight() * 0.35); 
 		}
-		// ;// 设置对话框的高度为手机屏幕的0.25
+		
 		aDialog.getWindow().setAttributes(params);
 		aDialog.getWindow().setContentView(view);
 		button.setOnClickListener(new OnClickListener() {

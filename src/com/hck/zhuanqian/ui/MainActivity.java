@@ -49,6 +49,8 @@ public class MainActivity extends Activity implements OnClickListener {
     private TextView hongBaoSize;
     private RemindView badge1;
     private LinearLayout msgTishiLayout;
+    private TextView chouJiangTextView;
+    private RemindView remindViewCJ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,7 @@ public class MainActivity extends Activity implements OnClickListener {
     protected void onResume() {
         super.onResume();
         initUserData();
+        updateView();
     }
 
     private void remind(RemindView remindView, int size) {
@@ -146,7 +149,7 @@ public class MainActivity extends Activity implements OnClickListener {
         mTGSize = (TextView) view.findViewById(R.id.tuiguang_user);
         mAllMoneyBtn.setOnClickListener(this);
         mAllTgUserBtn.setOnClickListener(this);
-        view.findViewById(R.id.homeChouJiang).setOnClickListener(this);
+        view.findViewById(R.id.homeChouJiang_rl).setOnClickListener(this);
         view.findViewById(R.id.homeHelp).setOnClickListener(this);
         view.findViewById(R.id.homeMingxi).setOnClickListener(this);
         view.findViewById(R.id.homeMore).setOnClickListener(this);
@@ -154,10 +157,26 @@ public class MainActivity extends Activity implements OnClickListener {
         view.findViewById(R.id.home_getMoney).setOnClickListener(this);
         view.findViewById(R.id.home_Duihuan).setOnClickListener(this);
         view.findViewById(R.id.home_Tuiguang).setOnClickListener(this);
+        chouJiangTextView = (TextView) view.findViewById(R.id.choujiang_TiShi);
         listView.setEmptyView(view);
         listView.setMode(Mode.PULL_FROM_START);
         hongBaoSize = (TextView) view.findViewById(R.id.hongbaoSize);
         msgTishiLayout = (LinearLayout) view.findViewById(R.id.msg_tishi);
+
+    }
+
+    private void updateView() {
+        UserBean userBean = MyData.getData().getUserBean();
+        if (remindViewCJ == null) {
+            remindViewCJ = new RemindView(this, chouJiangTextView);
+        }
+        remindViewCJ.toggle();
+        int choujiang = userBean.getChoujiang();
+        if (choujiang > 0) {
+            remind(remindViewCJ, choujiang);
+        } else {
+            remindViewCJ.hide();
+        }
 
     }
 
@@ -192,9 +211,8 @@ public class MainActivity extends Activity implements OnClickListener {
         case R.id.userMoney:
             startActivity(ZhuanQianJiLuActivity.class);
             break;
-        case R.id.homeChouJiang:
-            MyToast.showCustomerToast("¿ª·¢ÖÐ");
-            // startActivity(ChouJiangActivity.class);
+        case R.id.homeChouJiang_rl:
+            startActivity(ChouJiangActivity.class);
             break;
         case R.id.homeMingxi:
             startActivity(DuiHuanActivity.class);
