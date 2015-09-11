@@ -5,14 +5,21 @@
     android:background="@color/main_bg"
     android:orientation="vertical" >
 
+    <TextView
+       
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="上拉可以加载更多数据" />
+
     <com.handmark.pulltorefresh.library.PullToRefreshListView
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
         xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/hongbaoList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
         android:divider="@null"
         android:listSelector="@null"
         android:scrollbars="none"

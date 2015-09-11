@@ -10,6 +10,7 @@ import com.hck.httpserver.RequestParams;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Urls;
 import com.hck.zhuanqian.util.AppManager;
+import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.view.MyToast;
 
 public class Request {
@@ -137,7 +138,8 @@ public class Request {
             params.put("type", type);
             params.put("money", point + "");
             if (isTg) {
-                params.put("isTg", isTg + "");
+                LogUtil.D("tgtg");
+                params.put("isTg", 1 + "");
             }
             post(Urls.ADD_POINT, params, handler);
         } catch (Exception e) {
@@ -247,8 +249,15 @@ public class Request {
     public static void addTGInfo(RequestParams params, HCKHttpResponseHandler handler) {
         post(Urls.ADD_TG_INFO, params, handler);
     }
-
+   /**
+    * 更新抽奖次数
+    * @param params
+    * @param handler
+    */
     public static void updateChouJiangSize(RequestParams params, HCKHttpResponseHandler handler) {
         post(Urls.UPDATE_CHOUJIANG, params, handler);
+    }
+    public static void shareGetCj(RequestParams params, HCKHttpResponseHandler handler) {
+        post(Urls.SHARE_GET_CHOUJIANG, params, handler);
     }
 }

@@ -244,10 +244,14 @@
             android:name="com.jy.func.JYOfferActivity"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTask" />
+        <!-- jarwall内容详情页 -->
         <activity
             android:name="com.jy.func.JYOfferDetail"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask" /> <!-- 炅友结束 -->
+            android:launchMode="singleTask" />
+
+        <service android:name="com.jy.func.JYService" />
+        <!-- 炅友结束 -->
         <!-- 椰果开始 -->
         <activity
             android:name="cn.yeeguo.YeeguoOffersActivity"
@@ -275,6 +279,15 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver> <!-- 可可结束 -->
+        <!-- 中亿开始 -->
+        <activity
+            android:name="com.zy.phone.sdk.SDKActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:name="com.zy.phone.service.ZYService" >
+        </service>
+        <!-- 中亿结束 -->
 
 
         <!-- 分享 -->

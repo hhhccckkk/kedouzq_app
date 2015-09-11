@@ -3,6 +3,7 @@ package com.hck.zhuanqian.ui;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.DialogInterface;
@@ -28,6 +29,7 @@ import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.util.AppManager;
 import com.hck.zhuanqian.util.LogUtil;
+import com.hck.zhuanqian.util.ShareUtil;
 import com.hck.zhuanqian.view.CustomAlertDialog;
 import com.hck.zhuanqian.view.MyToast;
 import com.hck.zhuanqian.view.Pdialog;
@@ -91,30 +93,23 @@ public class ChouJiangActivity extends BaseActivity {
         if (isFinishing()) {
             return;
         }
-
         dialog = new CustomAlertDialog(this);
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setLeftText("取消");
         dialog.setRightText("确定");
         dialog.setTitle("提示");
-        dialog.setMessage("没有抽奖次数了，做任务赚金币兑换Q币或者支付宝后，分享好友可以获取抽奖次数");
+        dialog.setMessage("没有抽奖次数了，每天第一次分享app给好友可以获取一次抽奖次数");
         dialog.setOnRightListener(new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                getMoney();
+                   share();
             }
         });
         if (!isFinishing() && dialog != null) {
             dialog.show();
         }
 
-    }
-
-    private void getMoney() {
-        Intent intent = new Intent();
-        intent.setClass(ChouJiangActivity.this, KindActivity.class);
-        startActivity(intent);
     }
 
     @Override
@@ -237,40 +232,21 @@ public class ChouJiangActivity extends BaseActivity {
         timer.schedule(tt, 0, ONE_WHEEL_TIME);
     }
 
-    private int getJiangPingSize(int postion) {
-        if (0 <= postion && postion <= 5) {
-            return 4;
-        } else if (10 < postion && postion < 20) {
-            return 1;
-        } else if (50 < postion && postion <= 60) {
-            return 3;
-        } else if (60 < postion && postion <= 80) {
-            return 5;
-        } else if (80 < postion && postion <= 100) {
-            return 0;
-        } else {
-            return 2;
-        }
-    }
 
     private int getJiangPingSizeByciShu(int postion) {
-        if (0 <= postion && postion <= 5) {
+        if (5 <= postion && postion <= 7) {
             return 3;
         } else if (10 < postion && postion < 20) {
             return 2;
-        } else if (50 < postion && postion <= 60) {
-            return 0;
-        } else if (60 < postion && postion <= 80) {
+        } else if (50 < postion && postion <= 55) {
+            return 1;
+        } else if (70 < postion && postion <= 80) {
             return 5;
         } else if (80 < postion && postion <= 100) {
             return 0;
         } else {
             return 2;
         }
-    }
-
-    private void reducePoint() {
-
     }
 
     private void reduceChouJiangSize() {
@@ -312,8 +288,62 @@ public class ChouJiangActivity extends BaseActivity {
         updateView();
     }
 
-    public void getMoney(View view) {
-        getMoney();
+    public void shareApp(View view) {
+        share();
+    }
+
+    private void share() {
+        final String shareContent = "这个手机赚钱软件，很不错，希望大家一起来赚钱,安装就送红包";
+        ShareUtil.share(this, shareContent, handler);
+    }
+
+    Handler handler = new Handler() {
+        public void handleMessage(android.os.Message msg) {
+            if (msg.what == 0) {
+                MyToast.showCustomerToast("分享失败");
+            } else if (msg.what == 1) {
+                shareGetCj();
+            } else if (msg.what == 2) {
+                MyToast.showCustomerToast("分享取消");
+            }
+        };
+    };
+
+    private void shareGetCj() {
+        RequestParams params = new RequestParams();
+        params.put("uid", MyData.getMyData().getUserBean().getId() + "");
+        Request.shareGetCj(params, new JsonHttpResponseHandler() {
+            public void onFailure(Throwable error, String content) {
+                MyToast.showCustomerToast("网络异常，获取抽奖次数失败");
+            };
+
+            public void onFinish(String url) {
+            };
+
+            public void onSuccess(int statusCode, JSONObject response) {
+                try {
+                    boolean isok = response.getBoolean("isok");
+                    if (isok) {
+                        MyToast.showCustomerToast("恭喜您，增加了一次抽奖次数");
+                        updateUserChouJiang();
+                    }
+                    else {
+                        MyToast.showCustomerToast("分享成功,每天第一次分享可获取抽奖次数");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            };
+        });
+
+    }
+
+   
+    private void updateUserChouJiang() {
+        UserBean userBean = MyData.getData().getUserBean();
+        int cjSize = userBean.getChoujiang() + 1;
+        MyData.getData().getUserBean().setChoujiang(cjSize);
+        updateView();
     }
 
 }

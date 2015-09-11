@@ -35,7 +35,7 @@ public class YouMiActivity extends BaseActivity implements PointsEarnNotify {
 	public void nt2() {
 		try {
 			if (!getAirplaneMode()) {
-				AlertDialogs.alert(this, "",
+				AlertDialogs.alert(this, "我知道了",
 						"友情提示：该区必需开启手机飞行模式, 这样可以防止您自己的误操作，误点击，购买不需要的服务。", true);
 			}
 		} catch (Exception e) {

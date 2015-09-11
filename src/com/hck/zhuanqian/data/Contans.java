@@ -38,8 +38,8 @@ public class Contans {
 	public static final String BEI_ZUO_KEY = "14ee88ef0bb1112";
 	public static final String BEI_ZUO_ID = "13856";
 	// Í¡”—
-	public static final String jiongyou_KEY = "567ce021d27a4c898302a9ee604c997d";
-	public static final String jiongyou_ID = "1093";
+	public static final String jiongyou_KEY = "fb0a438d855b03aeb5b49c311e472104";
+	public static final String jiongyou_ID = "1101";
 	public static final String jiongyou_UID = "56918";
 	// ø…ø…
 	public static final String KE_KE_KEY = "e833b225a01321c076e0169b48f18bd5";

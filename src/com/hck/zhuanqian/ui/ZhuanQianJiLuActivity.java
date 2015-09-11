@@ -42,7 +42,7 @@ public class ZhuanQianJiLuActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zhuanqian_jilu);
-		initTitle("׬Ǯ��¼");
+		initTitle("׬Ǯ:"+MyData.getData().getUserBean().getAllMoney()+"Ԫ");
 		initView();
 		setListener();
 		getDataFromServer();

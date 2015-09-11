@@ -213,53 +213,13 @@ public class DuiHuanQQActivity extends BaseActivity implements OnClickListener {
             if (msg.what == 0) {
                 MyToast.showCustomerToast("分享失败");
             } else if (msg.what == 1) {
-                MyToast.showCustomerToast("分享成功");
-                addChouJiangSize();
+                MyToast.showCustomerToast("分享成功,坐等收钱");
 
             } else if (msg.what == 2) {
                 MyToast.showCustomerToast("分享取消");
             }
         };
     };
-
-    private void addChouJiangSize() {
-
-        Pdialog.showDialog(this, "请稍等，正在增加抽奖次数", false);
-        UserBean userBean = MyData.getData().getUserBean();
-        RequestParams params = new RequestParams();
-        params.put("uid", userBean.getId() + "");
-        params.put("cjSize", 1 + "");
-        Request.updateChouJiangSize(params, new JsonHttpResponseHandler() {
-            @Override
-            public void onFailure(Throwable error, String content) {
-                super.onFailure(error, content);
-                LogUtil.D("onFailure: " + error + content);
-                MyToast.showCustomerToast("网络异常 增加抽奖次数失败");
-            }
-
-            @Override
-            public void onSuccess(int statusCode, JSONObject response) {
-                super.onSuccess(statusCode, response);
-                LogUtil.D("onSuccess: " + response.toString());
-                MyToast.showCustomerToast("恭喜您，增加了一次抽奖次数");
-                updateUserChouJiang();
-            }
-
-            @Override
-            public void onFinish(String url) {
-                super.onFinish(url);
-                Pdialog.hiddenDialog();
-            }
-
-        });
-    }
-
-    private void updateUserChouJiang() {
-        UserBean userBean = MyData.getData().getUserBean();
-        int choujiang = userBean.getChoujiang();
-        userBean.setChoujiang(choujiang + 1);
-        MyData.getData().setUserBean(userBean);
-    }
 
     private void showSuccessDialog() {
         final String shareContent = "这个手机赚钱软件，很不错。刚兑换了" + qBiSize + "个Q币，希望大家一起来赚钱,安装就送红包";

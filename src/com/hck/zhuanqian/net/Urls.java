@@ -86,5 +86,9 @@ public class Urls {
     public static final String GET_MY_TG_APP_URL = "getMyTgAppUrl";
 
     public static final String UPDATE_CHOUJIANG = "updateChouJiangP";
+    /**
+     * 分享获取抽奖次数.
+     */
+    public static final String SHARE_GET_CHOUJIANG = "shareGetCj";
 
 }

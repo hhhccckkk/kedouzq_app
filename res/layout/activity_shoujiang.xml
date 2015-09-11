@@ -38,7 +38,7 @@
             android:background="@color/white"
             android:paddingBottom="3dp"
             android:paddingLeft="10dp"
-            android:text="每次需要消耗一次抽奖次数,抽奖次数可以在兑换Q币或者支付宝后，分享给好友即可获取"
+            android:text="每次需要消耗一次抽奖次数。每天第一次分享好友可以获取一次抽奖次数.分享qq好友后，请点击留在qq，然后在点击返回键，返回本应用，不然获取不到抽奖次数"
             android:textColor="#ff0000"
             android:textSize="12sp" />
     </LinearLayout>
@@ -85,8 +85,8 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/duihuan_btn_submit_selector"
         android:gravity="center"
-        android:onClick="getMoney"
-        android:text="赚金币兑换Q币获取抽奖次数"
+        android:onClick="shareApp"
+        android:text="分享好友获取抽奖次数"
         android:textColor="@color/white"
         android:textSize="16sp" />
 

@@ -68,7 +68,7 @@ public class ZhuanQianJiLuAdapter extends BaseAdapter {
 			viewHolder.stateTextView.setTextColor(context.getResources().getColor(R.color.red));
 		}
 		
-		viewHolder.contentTextView.setText(bean.getContent());
+		viewHolder.contentTextView.setText(bean.getContent().replaceAll("h", ""));
 		String timeString = bean.getTime();
 		viewHolder.timeTextView.setText(timeString.substring(0, 11));
 		return view;

@@ -87,6 +87,7 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
                     if (isOK) {
                         hData = JsonUtils.parse(response.toString(), HongBaoData.class);
                         hongbaos = hData.getHongbao();
+                        initTitle("我的红包: " + size + "个");
                         updateUI();
                     } else {
                         if (adpter == null) {
@@ -228,7 +229,7 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
         params = new RequestParams();
         params.put("uid", MyData.getData().getUserBean().getId() + "");
         params.put("name", hongbao.getuName());
-        params.put("content", "拆开红包获取推广金币: " + hongbao.getPoint() + "个");
+        params.put("content", "从推广用户"+hongbao.getuName()+"获取推广金币: " + hongbao.getPoint() + "个");
         Request.addTGInfo(params, new JsonHttpResponseHandler() {
             @Override
             public void onFailure(Throwable error, String content) {

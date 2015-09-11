@@ -16,6 +16,18 @@
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/kind_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/kind_icon"
+            android:gravity="center"
+            android:text="炅友"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
         <ImageView
             android:id="@+id/kind_img"
             android:layout_width="40dp"
