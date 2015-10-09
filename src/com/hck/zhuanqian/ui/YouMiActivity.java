@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.view.AlertDialogs;
@@ -26,6 +26,7 @@ public class YouMiActivity extends BaseActivity implements PointsEarnNotify {
 		super.onCreate(savedInstanceState);
 		initAd();
 		setContentView(R.layout.activity_youmi);
+		initTitle("小米专区");
 		getAdInitData();
 		initDownSize(findViewById(R.id.down_size));
 		initView();
@@ -69,10 +70,10 @@ public class YouMiActivity extends BaseActivity implements PointsEarnNotify {
 	}
 
 	public void startGetMoney(View view) {
-		if (!getAirplaneMode()) {
-			nt2();
-			return;
-		}
+//		if (!getAirplaneMode()) {
+//			nt2();
+//			return;
+//		}
 		try {
 			OffersManager.getInstance(this).showOffersWall();
 

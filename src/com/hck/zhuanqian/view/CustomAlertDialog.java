@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 
 public class CustomAlertDialog extends Dialog implements
         View.OnClickListener {
@@ -43,7 +43,7 @@ public class CustomAlertDialog extends Dialog implements
     }
 
     /**
-     * 自定义提醒内容布�?
+     * 自定义提醒内容布�?
      *
      * @param view
      */
@@ -53,7 +53,7 @@ public class CustomAlertDialog extends Dialog implements
     }
 
     /**
-     * 自定义提醒内容布�?
+     * 自定义提醒内容布�?
      *
      * @param viewId
      */
@@ -158,10 +158,14 @@ public class CustomAlertDialog extends Dialog implements
     }
 
     /**
-     * 隐藏左边的按�?
+     * 隐藏左边的按�?
      */
     public void hideLeftBtn() {
         mLeftBtn.setVisibility(View.GONE);
+    }
+    
+    public void hideRightBtn(){
+        mRightBtn.setVisibility(View.GONE);
     }
 
     @Override

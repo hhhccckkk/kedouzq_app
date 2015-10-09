@@ -2,7 +2,7 @@ package com.hck.zhuanqian.adapter;
 
 import java.util.List;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.bean.KindBean;
 import com.hck.zhuanqian.data.Contans;
 
@@ -46,13 +46,12 @@ public class KindAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             viewHolder.kindConten = (TextView) content.findViewById(R.id.kind_content);
             viewHolder.kindName = (TextView) content.findViewById(R.id.kind_name);
-            viewHolder.imageView = (ImageView) content.findViewById(R.id.kind_img);
             viewHolder.kindIconTextView = (TextView) content.findViewById(R.id.kind_icon);
             content.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) content.getTag();
         }
-        setImage(kindBeans.get(arg0).getAid(), viewHolder.imageView, viewHolder.kindIconTextView);
+        setImage(kindBeans.get(arg0).getAid(), viewHolder.kindIconTextView);
         viewHolder.kindConten.setText(kindBeans.get(arg0).getNeirong());
         viewHolder.kindName.setText(kindBeans.get(arg0).getContent());
 
@@ -61,69 +60,82 @@ public class KindAdapter extends BaseAdapter {
 
     static class ViewHolder {
         TextView kindName, kindConten, kindIconTextView;
-        ImageView imageView;
     }
 
-    private void setImage(int type, ImageView imageView, TextView textView) {
+    private void setImage(int type, TextView textView) {
         switch (type) {
         case Contans.AD_DIANLE:
-            imageView.setImageResource(R.drawable.dianle);
-            changeView(textView, imageView);
+            changeView(textView, Contans.AD_NAME_DIANLE);
+            textView.setBackgroundResource(R.drawable.quan1);
             break;
         case Contans.AD_DIANCAI:
-            imageView.setImageResource(R.drawable.diancai);
-            changeView(textView, imageView);
+            changeView(textView, Contans.AD_NAME_DIANCAI);
+            textView.setBackgroundResource(R.drawable.quan2);
             break;
         case Contans.AD_DUOMENG:
-            imageView.setImageResource(R.drawable.duomeng);
-            changeView(textView, imageView);
+            changeView(textView, Contans.AD_NAME_DUOMENG);
+            textView.setBackgroundResource(R.drawable.quan3);
             break;
         case Contans.AD_DATOUNIAO:
-            imageView.setImageResource(R.drawable.datouliao);
-            changeView(textView, imageView);
+            changeView(textView, Contans.AD_NAME_DATOUNIAO);
+            textView.setBackgroundResource(R.drawable.quan4);
             break;
         case Contans.AD_YOUMI:
-            imageView.setImageResource(R.drawable.youmi);
-            changeView(textView, imageView);
+            changeView(textView, Contans.AD_NAME_YOUMI);
+            textView.setBackgroundResource(R.drawable.quan5);
             break;
         case Contans.AD_YEGUO:
-            imageView.setImageResource(R.drawable.yeguo);
-            changeView(textView, imageView);
+            changeView(textView, Contans.AD_NAME_YEGUO);
+            textView.setBackgroundResource(R.drawable.quan6);
             break;
         case Contans.AD_JIONG_YOU:
-            imageView.setVisibility(View.GONE);
-            textView.setText(Contans.AD_NMAE_JIONG_YOU);
-            textView.setVisibility(View.VISIBLE);
+            changeView(textView, Contans.AD_NMAE_JIONG_YOU);
+            textView.setBackgroundResource(R.drawable.quan7);
             break;
         case Contans.AD_GUOMENG:
-            imageView.setImageResource(R.drawable.guomeng);
+            changeView(textView, Contans.AD_NMAE_GUOMENG);
+            textView.setBackgroundResource(R.drawable.quan8);
             break;
         case Contans.AD_KEKE:
-            textView.setText(Contans.AD_NAME_KEKE);
-            textView.setVisibility(View.VISIBLE);
-            imageView.setVisibility(View.GONE);
+            changeView(textView, Contans.AD_NAME_KEKE);
+            textView.setBackgroundResource(R.drawable.quan9);
             break;
         case Contans.AD_ZHONGYI:
-            imageView.setImageResource(R.drawable.zhongyi);
-            break;
-        case Contans.AD_QI_DIAN:
-            imageView.setImageResource(R.drawable.qidian);
+            changeView(textView, Contans.AD_NMAE_ZHONYI);
+            textView.setBackgroundResource(R.drawable.quan10);
             break;
         case Contans.AD_BEIDUO:
-            textView.setText(Contans.AD_NAME_BEIDUO);
-            textView.setVisibility(View.VISIBLE);
-            imageView.setVisibility(View.GONE);
+            changeView(textView, Contans.AD_NAME_BEIDUO);
+            textView.setBackgroundResource(R.drawable.quan1);
             break;
-
+        case Contans.AD_KIND_JINGDAI:
+            changeView(textView, Contans.AD_NAME_JINGDAI);
+            textView.setBackgroundResource(R.drawable.quan2);
+            break;
+        case Contans.AD_ID_WANPU:
+            changeView(textView, Contans.AD_NMAE_WANPU);
+            textView.setBackgroundResource(R.drawable.quan3);
+            break;
+        case Contans.AD_ID_LEDIAN:
+            changeView(textView, Contans.AD_NAME_LEDIAN);
+            textView.setBackgroundResource(R.drawable.quan4);
+            break;
+        case Contans.AD_KIND_DIQI:
+            changeView(textView, Contans.AD_NAME_DIQI);
+            textView.setBackgroundResource(R.drawable.quan5);
+            break;
+        case Contans.AD_KIND_XIAOTANG:
+            changeView(textView, Contans.AD_NAME_XIAOTANG);
+            textView.setBackgroundResource(R.drawable.quan6);
+            break;
         default:
             break;
         }
 
     }
 
-    private void changeView(TextView textView, ImageView imageView) {
-        textView.setVisibility(View.GONE);
-        imageView.setVisibility(View.VISIBLE);
+    private void changeView(TextView textView,String adName) {
+        textView.setText(adName);
     }
 
 }

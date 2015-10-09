@@ -5,7 +5,6 @@ import org.json.JSONObject;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
@@ -26,6 +25,7 @@ import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.view.CustomAlertDialog;
 import com.hck.zhuanqian.view.MyToast;
 import com.hck.zhuanqian.view.TitleBar;
+import com.umeng.analytics.MobclickAgent;
 
 /**
  * 基础界面.
@@ -38,6 +38,9 @@ public class BaseActivity extends FragmentActivity {
     public boolean isOK;
     public int type, maxNum;
     public WebView webView;
+    public static final int HUAFEI = 1;
+    public static final int HUAFEI_SUCCESS = 2;
+    public static final int HUAFEI_FAIL = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,18 @@ public class BaseActivity extends FragmentActivity {
     public boolean getAirplaneMode() {
         int isAirplaneMode = Settings.System.getInt(this.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0);
         return (isAirplaneMode == 1) ? true : false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
     @Override
@@ -130,14 +145,13 @@ public class BaseActivity extends FragmentActivity {
         @Override
         public void onFailure(Throwable error, String content) {
             super.onFailure(error, content);
-            LogUtil.D("增加金币失败: " + error + content);
+            LogUtil.D("增加金币失败: " + content + error);
             MyToast.showCustomerToast("网络异常增加金币失败");
         }
 
         @Override
         public void onSuccess(int statusCode, JSONObject response) {
             super.onSuccess(statusCode, response);
-            LogUtil.D("增加金币成功: " + response.toString());
             dealResult(response, point);
 
         }
@@ -164,15 +178,15 @@ public class BaseActivity extends FragmentActivity {
     }
 
     public void savePoint(String adName, int point) {
-        Request.addPoint(type, maxNum, adName, point, false, new MyRequestCallBack(point));
+        Request.addPoint(type, maxNum, adName, false, point, new MyRequestCallBack(point));
     }
 
-    public void savePoint(String adName, int point, boolean isTG, HCKHttpResponseHandler handler) {
-        Request.addPoint(type, maxNum, adName, point, isTG, handler);
+    public void savePoint(String adName, int point, Boolean isxt, HCKHttpResponseHandler handler) {
+        Request.addPoint(type, maxNum, adName, isxt, point, handler);
     }
 
     public void savePoint(int point) {
-        Request.addPoint(Contans.CHOUJIANG, 1000, "抽奖", point, false, new MyRequestCallBack(point));
+        Request.addPoint(Contans.CHOUJIANG, 1000, "抽奖", false, point, new MyRequestCallBack(point));
     }
 
 }

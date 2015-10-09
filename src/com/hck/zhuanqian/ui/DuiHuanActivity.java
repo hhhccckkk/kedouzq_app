@@ -9,12 +9,13 @@ import android.view.View.OnClickListener;
 import android.widget.ListView;
 
 import com.hck.httpserver.JsonHttpResponseHandler;
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.adapter.DHListAdpter;
 import com.hck.zhuanqian.data.ZhuanQianJiLu;
 import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.util.JsonUtils;
 import com.hck.zhuanqian.util.LogUtil;
+import com.hck.zhuanqian.view.Pdialog;
 
 public class DuiHuanActivity extends BaseActivity {
     private ListView listView;
@@ -23,7 +24,7 @@ public class DuiHuanActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_duihuan);
-        initTitle("最新兑换记录");
+        initTitle("兑换中心");
         initView();
         getDuiHuanJiLuData();
     }
@@ -48,6 +49,7 @@ public class DuiHuanActivity extends BaseActivity {
     }
 
     private void getDuiHuanJiLuData() {
+        Pdialog.showDialog(this, "正在获取数据...", true);
         Request.getDuiHuanJiLu(new JsonHttpResponseHandler() {
             @Override
             public void onFailure(Throwable error, String content) {
@@ -68,6 +70,7 @@ public class DuiHuanActivity extends BaseActivity {
                     } else {
                     }
                 } catch (Exception e) {
+                    LogUtil.D("eeee: " + e.toString());
                 }
 
             }
@@ -75,6 +78,7 @@ public class DuiHuanActivity extends BaseActivity {
             @Override
             public void onFinish(String url) {
                 super.onFinish(url);
+                Pdialog.hiddenDialog();
             }
         });
     }

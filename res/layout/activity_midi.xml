@@ -5,28 +5,35 @@
     android:background="@color/main_bg"
     android:orientation="vertical" >
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginBottom="30dp" >
+        android:orientation="vertical" >
 
-        
-       <WebView 
-           android:layout_marginTop="10dp"
-           android:layout_marginBottom="20dp"
-           android:layout_marginLeft="10dp"
-           android:layout_marginRight="10dp"
-           android:layout_width="fill_parent"
-           android:layout_height="fill_parent"
-           android:id="@+id/dianle_webview"
-           />
-    </ScrollView>
+        <TextView
+            android:id="@+id/down_size"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textColor="@color/red"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="点击开始赚钱，打开软件下载界面，下载安装软件后打开软件，按照要求做即可获取金币,成功获取金币后，有相应提示,下载过程请留在下载界面"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+    </LinearLayout>
 
     <Button
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_width="fill_parent"
         android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
@@ -36,7 +43,5 @@
         android:text="开始赚钱"
         android:textColor="#ffffff"
         android:textSize="20sp" />
-
-    
 
 </RelativeLayout>

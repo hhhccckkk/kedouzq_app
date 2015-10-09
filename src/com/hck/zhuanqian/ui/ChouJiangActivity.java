@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.hck.httpserver.HCKHttpResponseHandler;
 import com.hck.httpserver.JsonHttpResponseHandler;
 import com.hck.httpserver.RequestParams;
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.bean.UserBean;
 import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.data.MyData;
@@ -48,18 +48,17 @@ public class ChouJiangActivity extends BaseActivity {
     private ImageView lightIv;
     private ImageView pointIv;
     // 指针转圈圈数数据源
-    private int[] laps = { 5, 7, 10, 15 };
+    private int[] laps = { 10, 11, 13, 15, 17, 20, 22, 25, 30 };
     // 指针所指向的角度数据源，因为有6个选项，所有此处是6个值
     private int[] angles = { 0, 60, 120, 180, 240, 300 };
     // 转盘内容数组
-    private String[] lotteryStr = { "恭喜获取金币50个", "恭喜获取金币150个", "谢谢参与", "恭喜获取金币200个", "恭喜获取1个Q币", "恭喜获取金币100个", };
+    private String[] lotteryStr = { "恭喜获取金币500个", "恭喜获取金币50000个", "恭喜获取金币1000个", "恭喜获取金币100000个", "恭喜获取金币2000个", "恭喜获取金币100个", };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shoujiang);
         choujiangTextView = (TextView) findViewById(R.id.choujiangSize);
-        updateView();
         initTitle("抽奖看人品");
         setupViews();
         flashLights();
@@ -74,7 +73,7 @@ public class ChouJiangActivity extends BaseActivity {
                     reduceChouJiangSize();
 
                 } else {
-                    showDialog();
+                    Toast.makeText(ChouJiangActivity.this, "没有抽奖次数 做任务提现可以获取次数", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -89,27 +88,11 @@ public class ChouJiangActivity extends BaseActivity {
         }
     }
 
-    public void showDialog() {
-        if (isFinishing()) {
-            return;
-        }
-        dialog = new CustomAlertDialog(this);
-        dialog.setCancelable(false);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setLeftText("取消");
-        dialog.setRightText("确定");
-        dialog.setTitle("提示");
-        dialog.setMessage("没有抽奖次数了，每天第一次分享app给好友可以获取一次抽奖次数");
-        dialog.setOnRightListener(new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                   share();
-            }
-        });
-        if (!isFinishing() && dialog != null) {
-            dialog.show();
-        }
-
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        updateView();
     }
 
     @Override
@@ -121,7 +104,7 @@ public class ChouJiangActivity extends BaseActivity {
     }
 
     private void startChouJiang() {
-        int lap = laps[(int) (Math.random() * 4)];
+        int lap = laps[(int) (Math.random() * 8)];
         startDegree = 0;
         int postion = (int) (Math.random() * 100);
         int angle = 0;
@@ -191,22 +174,55 @@ public class ChouJiangActivity extends BaseActivity {
         @Override
         public void onAnimationEnd(Animation animation) {
             String name = lotteryStr[postion2];
-            Toast.makeText(ChouJiangActivity.this, name, Toast.LENGTH_LONG).show();
+            Toast.makeText(ChouJiangActivity.this, name, Toast.LENGTH_SHORT).show();
             addPoint();
             updateView();
         }
     };
 
     private void addPoint() {
+        String content = null;
         if (postion2 == 0) {
-            savePoint(50);
-        } else if (postion2 == 1) {
-            savePoint(150);
-        } else if (postion2 == 3) {
-            savePoint(200);
+            savePoint(500);
+            content = "抽奖获取金币500个=0.5元";
+            addCJInfo(content, 0);
+        } else if (postion2 == 2) {
+            savePoint(1000);
+            content = "人品不错，抽奖获取金币1000个=1元";
+            addCJInfo(content, 1000);
+        } else if (postion2 == 4) {
+            savePoint(2000);
+            content = "人品爆发，抽奖获取金币2000个=2元";
+            addCJInfo(content, 2000);
         } else if (postion2 == 5) {
             savePoint(100);
+            content = "抽奖获取金币100个=0.1元";
+            addCJInfo(content, 0);
         }
+
+    }
+
+    private void addCJInfo(String content, int point) {
+        UserBean userBean = MyData.getData().getUserBean();
+        if (userBean == null) {
+            return;
+        }
+        params = new RequestParams();
+        params.put("touxiang", userBean.getTouxiang());
+        params.put("username", userBean.getName());
+        params.put("uid", userBean.getId() + "");
+        params.put("content", content);
+        params.put("point", point + "");
+        Request.addCJInfo(params, new JsonHttpResponseHandler() {
+            public void onFailure(Throwable content, String data) {
+                LogUtil.D("onFailure: " + data + content);
+            };
+
+            public void onSuccess(int statusCode, JSONObject response) {
+                LogUtil.D("onSuccess: " + response.toString());
+            };
+        });
+
     }
 
     private void setupViews() {
@@ -232,20 +248,17 @@ public class ChouJiangActivity extends BaseActivity {
         timer.schedule(tt, 0, ONE_WHEEL_TIME);
     }
 
-
     private int getJiangPingSizeByciShu(int postion) {
-        if (5 <= postion && postion <= 7) {
-            return 3;
-        } else if (10 < postion && postion < 20) {
-            return 2;
-        } else if (50 < postion && postion <= 55) {
-            return 1;
-        } else if (70 < postion && postion <= 80) {
-            return 5;
-        } else if (80 < postion && postion <= 100) {
+        if (1 <= postion && postion < 40) {
             return 0;
-        } else {
+        } else if (40 < postion && postion < 70) {
             return 2;
+        } else if (70 < postion && postion < 90) {
+            return 5;
+        } else if (90 < postion && postion < 100) {
+            return 4;
+        } else {
+            return 0;
         }
     }
 
@@ -289,61 +302,7 @@ public class ChouJiangActivity extends BaseActivity {
     }
 
     public void shareApp(View view) {
-        share();
-    }
-
-    private void share() {
-        final String shareContent = "这个手机赚钱软件，很不错，希望大家一起来赚钱,安装就送红包";
-        ShareUtil.share(this, shareContent, handler);
-    }
-
-    Handler handler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
-            if (msg.what == 0) {
-                MyToast.showCustomerToast("分享失败");
-            } else if (msg.what == 1) {
-                shareGetCj();
-            } else if (msg.what == 2) {
-                MyToast.showCustomerToast("分享取消");
-            }
-        };
-    };
-
-    private void shareGetCj() {
-        RequestParams params = new RequestParams();
-        params.put("uid", MyData.getMyData().getUserBean().getId() + "");
-        Request.shareGetCj(params, new JsonHttpResponseHandler() {
-            public void onFailure(Throwable error, String content) {
-                MyToast.showCustomerToast("网络异常，获取抽奖次数失败");
-            };
-
-            public void onFinish(String url) {
-            };
-
-            public void onSuccess(int statusCode, JSONObject response) {
-                try {
-                    boolean isok = response.getBoolean("isok");
-                    if (isok) {
-                        MyToast.showCustomerToast("恭喜您，增加了一次抽奖次数");
-                        updateUserChouJiang();
-                    }
-                    else {
-                        MyToast.showCustomerToast("分享成功,每天第一次分享可获取抽奖次数");
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            };
-        });
-
-    }
-
-   
-    private void updateUserChouJiang() {
-        UserBean userBean = MyData.getData().getUserBean();
-        int cjSize = userBean.getChoujiang() + 1;
-        MyData.getData().getUserBean().setChoujiang(cjSize);
-        updateView();
+        startActivity(ChouJiangJiLuActivity.class);
     }
 
 }

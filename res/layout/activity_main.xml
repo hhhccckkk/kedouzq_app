@@ -36,25 +36,43 @@
                 android:layout_weight="1"
                 android:orientation="vertical" >
 
-                <TextView
-                    android:id="@+id/userId"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal" >
 
-                <TextView
-                    android:id="@+id/userName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="蝌蚪3444"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    <ImageView
+                        android:id="@+id/image_tx"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitXY" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/userName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/userid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -79,8 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"
-                    android:text="4555555个"
+                    android:layout_marginTop="10dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -90,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="5dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -114,17 +131,37 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-            <Button
-                android:id="@+id/userTuiguang"
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_zhuanqian_selector"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:layout_weight="1" >
+
+                <Button
+                    android:id="@+id/userTuiguang"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/btn_zhuanqian_selector"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tgSize"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="10dp"
+                        android:focusable="false" />
+                </LinearLayout>
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -154,39 +191,51 @@
             android:background="#d5d5d5" />
 
         <RelativeLayout
-              android:id="@+id/homeChouJiang_rl"
+            android:id="@+id/homeChouJiang_rl"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/tv_title_selector"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:background="@drawable/tv_title_selector" >
 
             <TextView
-                android:layout_centerInParent="true"
                 android:id="@+id/homeChouJiang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:gravity="center"
                 android:text="@string/main_choujiang"
-                android:textColor="#404040"
+                android:textColor="#333333"
                 android:textSize="16sp" />
 
             <TextView
-                android:layout_toRightOf="@+id/homeChouJiang"
                 android:id="@+id/choujiang_TiShi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                />
-
-                
-            
+                android:layout_toRightOf="@+id/homeChouJiang"
+                android:orientation="vertical" />
         </RelativeLayout>
 
         <View
             android:layout_width="1dp"
             android:layout_height="fill_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:background="#d5d5d5" />
+
+        <TextView
+            android:id="@+id/order"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tv_title_selector"
+            android:gravity="center"
+            android:text="@string/main_order"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
             android:background="#d5d5d5" />
 
         <TextView
@@ -197,14 +246,12 @@
             android:background="@drawable/tv_title_selector"
             android:gravity="center"
             android:text="@string/main_help"
-            android:textColor="#404040"
+            android:textColor="#333333"
             android:textSize="16sp" />
 
         <View
             android:layout_width="1dp"
             android:layout_height="fill_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
             android:background="#d5d5d5" />
 
         <RelativeLayout
@@ -220,7 +267,7 @@
                 android:background="@drawable/tv_title_selector"
                 android:gravity="center"
                 android:text="@string/main_more"
-                android:textColor="#404040"
+                android:textColor="#333333"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -276,9 +323,10 @@
             android:background="@drawable/tv_title_selector" >
 
             <ImageView
+                android:scaleType="fitXY"
                 android:id="@+id/home_zq_img"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                  android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -290,7 +338,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/home_zq_img"
                 android:text="赚钱"
-                android:textColor="#404040"
+                android:textColor="#333333"
                 android:textSize="16sp" />
 
             <TextView
@@ -304,7 +352,7 @@
                 android:gravity="center_vertical"
                 android:text="3分钟可赚一元"
                 android:textColor="#666666"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
         </RelativeLayout>
 
         <View
@@ -321,8 +369,8 @@
 
             <ImageView
                 android:id="@+id/home_hb_img"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -336,7 +384,7 @@
                 android:layout_toRightOf="@+id/home_hb_img"
                 android:gravity="center_vertical"
                 android:text="红包"
-                android:textColor="#404040"
+                android:textColor="#333333"
                 android:textSize="16sp" />
 
             <TextView
@@ -350,7 +398,7 @@
                 android:gravity="center_vertical"
                 android:text="拆红包获取金币"
                 android:textColor="#666666"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
         </RelativeLayout>
 
         <View
@@ -367,8 +415,8 @@
 
             <ImageView
                 android:id="@+id/home_zq_img2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                  android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -380,7 +428,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/home_zq_img2"
                 android:text="兑换"
-                android:textColor="#404040"
+                android:textColor="#333333"
                 android:textSize="16sp" />
 
             <TextView
@@ -392,9 +440,9 @@
                 android:drawablePadding="5dp"
                 android:drawableRight="@drawable/list_ico_arrow"
                 android:gravity="center_vertical"
-                android:text="1元起即可兑换"
+                android:text="1元起提现=1000金币"
                 android:textColor="#666666"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
         </RelativeLayout>
 
         <View
@@ -412,8 +460,8 @@
 
             <ImageView
                 android:id="@+id/home_zq_img3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -425,7 +473,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/home_zq_img3"
                 android:text="推广"
-                android:textColor="#404040"
+                android:textColor="#333333"
                 android:textSize="16sp" />
 
             <TextView
@@ -437,9 +485,9 @@
                 android:drawablePadding="5dp"
                 android:drawableRight="@drawable/list_ico_arrow"
                 android:gravity="center_vertical"
-                android:text="超牛逼5级好友推广奖励"
+                android:text="超牛逼8级徒弟推广奖励"
                 android:textColor="#666666"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
         </RelativeLayout>
     </LinearLayout>
 

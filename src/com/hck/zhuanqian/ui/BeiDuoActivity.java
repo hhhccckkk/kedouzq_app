@@ -8,7 +8,7 @@ import com.bb.dd.BeiduoPlatform;
 import com.bb.dd.listener.IActiveListener;
 import com.bb.dd.listener.IGetListener;
 import com.bb.dd.listener.IReduceListener;
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.util.LogUtil;
 
@@ -26,6 +26,7 @@ public class BeiDuoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         initAd();
         setContentView(R.layout.activity_beiduo);
+        initTitle("Ð¡±´×¨Çø");
         getAdInitData();
         initDownSize(findViewById(R.id.down_size));
     }

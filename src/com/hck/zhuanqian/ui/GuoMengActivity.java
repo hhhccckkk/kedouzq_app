@@ -10,7 +10,7 @@ import cn.guomob.android.intwal.GMUtils;
 import cn.guomob.android.intwal.OpenIntegralWall;
 import cn.guomob.android.intwal.ReturnAdMsg;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.view.MyToast;
@@ -21,6 +21,7 @@ public class GuoMengActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guomeng);
+        initTitle("小果专区");
         initAD();
         getAdInitData();
         initDownSize(findViewById(R.id.down_size));

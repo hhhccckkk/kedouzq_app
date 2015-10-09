@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.util.MyTools;
 
 public class AlertDialogs {
@@ -51,8 +51,8 @@ public class AlertDialogs {
 			params.height = (int) (MyTools.getScreenHeight() * 0.5);
 			params.width = (int) (MyTools.getScreenWidth() * 0.95);
 		} else {
-		    params.width = (int) (MyTools.getScreenWidth() * 0.65); 
-	        params.height = (int) (MyTools.getScreenHeight() * 0.35); 
+		    params.width = (int) (MyTools.getScreenWidth() * 0.8); 
+	        params.height = (int) (MyTools.getScreenHeight() * 0.36); 
 		}
 		
 		aDialog.getWindow().setAttributes(params);

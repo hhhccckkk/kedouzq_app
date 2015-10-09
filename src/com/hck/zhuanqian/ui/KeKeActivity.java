@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.view.View;
 import android.webkit.WebView;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.view.AlertDialogs;
 import com.lostip.sdk.offerwalllibrary.LostipOfferWall;
@@ -20,6 +20,7 @@ public class KeKeActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		initAd();
 		setContentView(R.layout.activity_keke);
+		initTitle("小可专区");
 		getAdInitData();
 		initDownSize(findViewById(R.id.down_size));
 		initView();

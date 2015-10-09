@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.ui.MyApplication;
 
 public class MyToast {
@@ -27,5 +27,12 @@ public class MyToast {
 	        sToast.show();
 
 	    }
+	 
+	 public static void dissMissToast(){
+	     if (sToast!=null) {
+            sToast.cancel();
+            sToast=null;
+        }
+	 }
 
 }

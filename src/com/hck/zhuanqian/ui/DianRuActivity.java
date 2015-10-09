@@ -3,7 +3,7 @@ package com.hck.zhuanqian.ui;
 import android.os.Bundle;
 import android.view.View;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.util.LogUtil;
 import com.yql.sdk.DRScoreInterface;
 import com.yql.sdk.DRSdk;

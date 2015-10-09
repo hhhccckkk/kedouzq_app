@@ -2,7 +2,7 @@ package com.hck.zhuanqian.ui;
 
 import com.hck.httpserver.JsonHttpResponseHandler;
 import com.hck.httpserver.RequestParams;
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.util.LogUtil;

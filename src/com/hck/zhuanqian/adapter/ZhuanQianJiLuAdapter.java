@@ -2,7 +2,7 @@ package com.hck.zhuanqian.adapter;
 
 import java.util.List;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.bean.OrderBean;
 import com.hck.zhuanqian.data.ZhuanQianJiLu;
 

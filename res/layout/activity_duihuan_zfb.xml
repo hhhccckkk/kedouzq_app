@@ -7,8 +7,9 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
+        android:minHeight="45dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -25,10 +26,9 @@
         <TextView
             android:id="@+id/duihuan_my_jinbi"
             android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:drawablePadding="5dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:paddingLeft="10dp"
+            android:padding="10dp"
             android:textColor="#f21616"
             android:textSize="16sp" />
     </LinearLayout>
@@ -139,7 +139,7 @@
                 android:background="@drawable/duihuan_btn_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:text="10元"
+                android:text="10元(抽奖+1)"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -160,7 +160,7 @@
                 android:background="@drawable/duihuan_btn_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:text="20元"
+                android:text="20元(抽奖+3)"
                 android:textColor="@color/black" />
 
             <Button
@@ -172,7 +172,7 @@
                 android:background="@drawable/duihuan_btn_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:text="50元"
+                android:text="50元(抽奖+8)"
                 android:textColor="@color/black" />
 
             <Button
@@ -184,7 +184,7 @@
                 android:background="@drawable/duihuan_btn_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:text="100元"
+                android:text="100元(抽奖+15)"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -238,16 +238,6 @@
                 android:text="确定兑换"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="3dp"
-                android:text="每次兑换越多，优惠越多,最高8折优惠"
-                android:textColor="#999999"
-                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 

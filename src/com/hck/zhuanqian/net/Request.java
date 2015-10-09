@@ -7,6 +7,7 @@ import android.content.pm.PackageInfo;
 import com.hck.httpserver.HCKHttpClient;
 import com.hck.httpserver.HCKHttpResponseHandler;
 import com.hck.httpserver.RequestParams;
+import com.hck.zhuanqian.bean.UserBean;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Urls;
 import com.hck.zhuanqian.util.AppManager;
@@ -15,6 +16,7 @@ import com.hck.zhuanqian.view.MyToast;
 
 public class Request {
     private static final int TIME_OUT = 15 * 1000;
+    public static final int REQUEST_SUCCESS = 1;
     private static HCKHttpClient client = new HCKHttpClient();
     static {
         client.setTimeout(TIME_OUT);
@@ -129,17 +131,28 @@ public class Request {
      * @param handler
      */
 
-    public static void addPoint(int kid, int num, String type, int point, boolean isTg, HCKHttpResponseHandler handler) {
+    public static void addPoint(int kid, int num, String adName, boolean isxt, int point, HCKHttpResponseHandler handler) {
         try {
+            UserBean userBean = MyData.getData().getUserBean();
             RequestParams params = new RequestParams();
-            params.put("uid", MyData.getData().getUserBean().getId() + "");
+            params.put("uid", userBean.getId() + "");
+            params.put("userName", userBean.getName() + "");
             params.put("kid", kid + "");
             params.put("num", num + "");
-            params.put("type", type);
+            params.put("type", adName);
             params.put("money", point + "");
-            if (isTg) {
-                LogUtil.D("tgtg");
-                params.put("isTg", 1 + "");
+            params.put("shangjia1", userBean.getShangjia1() + "");
+            params.put("shangjia2", userBean.getShangjia2() + "");
+            params.put("shangjia3", userBean.getShangjia3() + "");
+            params.put("shangjia4", userBean.getShangjia4() + "");
+            params.put("shangjia5", userBean.getShangjia5() + "");
+            params.put("shangjia6", userBean.getShangjia6() + "");
+            params.put("shangjia7", userBean.getShangjia7() + "");
+            params.put("shangjia8", userBean.getShangjia8() + "");
+            if (isxt) {
+                params.put("isxt", 1 + "");
+            } else {
+                params.put("isxt", 0 + "");
             }
             post(Urls.ADD_POINT, params, handler);
         } catch (Exception e) {
@@ -178,6 +191,16 @@ public class Request {
      */
     public static void updateUserInfo(RequestParams params, HCKHttpResponseHandler handler) {
         post(Urls.UPDATE_USER_INFO, params, handler);
+    }
+
+    /**
+     * 增加pushid.
+     * 
+     * @param params
+     * @param handler
+     */
+    public static void addUserPushId(RequestParams params, HCKHttpResponseHandler handler) {
+        post(Urls.ADD_USER_PUSH_ID, params, handler);
     }
 
     /**
@@ -249,15 +272,91 @@ public class Request {
     public static void addTGInfo(RequestParams params, HCKHttpResponseHandler handler) {
         post(Urls.ADD_TG_INFO, params, handler);
     }
-   /**
-    * 更新抽奖次数
-    * @param params
-    * @param handler
-    */
+
+    /**
+     * 更新抽奖次数
+     * 
+     * @param params
+     * @param handler
+     */
     public static void updateChouJiangSize(RequestParams params, HCKHttpResponseHandler handler) {
         post(Urls.UPDATE_CHOUJIANG, params, handler);
     }
+
+    /**
+     * 获取抽奖次数.
+     * 
+     * @param params
+     * @param handler
+     */
     public static void shareGetCj(RequestParams params, HCKHttpResponseHandler handler) {
         post(Urls.SHARE_GET_CHOUJIANG, params, handler);
+    }
+
+    /**
+     * 获取单个用户信息
+     * 
+     * @param params
+     * @param handler
+     */
+    public static void getUser(RequestParams params, HCKHttpResponseHandler handler) {
+        get(Urls.GET_USER, params, handler);
+    }
+
+    /**
+     * 获取推广用户size
+     * 
+     * @param params
+     * @param handler
+     */
+    public static void getTgUserSize(RequestParams params, HCKHttpResponseHandler handler) {
+        get(Urls.GET_TG_USER_SIZE, params, handler);
+    }
+
+    /**
+     * 获取推广用户
+     * 
+     * @param params
+     * @param handler
+     */
+    public static void getTgUser(RequestParams params, HCKHttpResponseHandler handler) {
+        get(Urls.GET_TG_USER, params, handler);
+    }
+
+    /**
+     * 发消息
+     * 
+     * @param params
+     * @param handler
+     */
+    public static void addMsg(RequestParams params, HCKHttpResponseHandler handler) {
+        post(Urls.ADD_MSG, params, handler);
+    }
+
+    /**
+     * 增加抽奖信息
+     * 
+     * @param params
+     * @param handler
+     */
+    public static void addCJInfo(RequestParams params, HCKHttpResponseHandler handler) {
+        post(Urls.ADD_CJ_INFO, params, handler);
+    }
+
+    /**
+     * 获取抽奖记录
+     * 
+     * @param params
+     * @param handler
+     */
+    public static void getChouJiangInfo(RequestParams params, HCKHttpResponseHandler handler) {
+        get(Urls.GET_CJ_INFO, params, handler);
+    }
+
+    /**
+     * 获取版本信息.
+     */
+    public static void getAppInfo(RequestParams params, HCKHttpResponseHandler handler) {
+        get(Urls.GET_APP_INFO, params, handler);
     }
 }

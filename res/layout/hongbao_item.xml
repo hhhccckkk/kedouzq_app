@@ -14,54 +14,73 @@
             android:id="@+id/img"
             android:layout_width="45dp"
             android:layout_height="50dp"
-            android:layout_centerVertical="true"
+            android:layout_margin="8dp"
             android:src="@drawable/hongbao" />
 
         <LinearLayout
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="10dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/dakai"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="8dp"
+            android:layout_toLeftOf="@+id/dakai1"
             android:layout_toRightOf="@+id/img"
             android:orientation="vertical" >
 
             <TextView
-                
                 android:id="@+id/hongbao_content"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:textColor="#333333"
-                android:textSize="16sp" />
+                android:textColor="#666666"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/hongbao_time"
-                android:layout_marginTop="3dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:gravity="center_vertical"
                 android:textColor="#999999"
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/dakai"
-            android:layout_width="60dp"
-            android:layout_height="25dp"
+        <LinearLayout
+            android:id="@+id/dakai1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/duihuan_btn_submit_selector"
-            android:text="拆开"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:gravity="fill_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/HongBao_jinbi"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:textColor="#90ff0000"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/dakai"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/duihuan_btn_submit_selector"
+                android:text="拆开"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
     </RelativeLayout>
- <View
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/huise" />
+
 </LinearLayout>

@@ -9,7 +9,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.res.Resources;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 
 public class FileUtil {
 

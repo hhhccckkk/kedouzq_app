@@ -16,10 +16,11 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.hck.httpserver.JsonHttpResponseHandler;
 import com.hck.httpserver.RequestParams;
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.adapter.HongBaoAdpter;
 import com.hck.zhuanqian.adapter.HongBaoAdpter.CallBack;
 import com.hck.zhuanqian.bean.Hongbao;
+import com.hck.zhuanqian.bean.UserBean;
 import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.data.HongBaoData;
 import com.hck.zhuanqian.data.MyData;
@@ -44,7 +45,7 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
     private boolean isIng;
     private int post;
     private Hongbao hongbao;
-
+    boolean isxt = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +65,7 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
         errorView = LayoutInflater.from(this).inflate(R.layout.error_view, null);
         nTextView = (TextView) errorView.findViewById(R.id.error_text);
         nTextView.setText("您还没有红包 推广用户可以无限获取红包");
-        nTextView.setTextColor(getResources().getColor(R.color.red));
+
     }
 
     private void getHongBao() {
@@ -72,9 +73,12 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
         params.put("page", page + "");
         Request.getHongBao(params, new JsonHttpResponseHandler() {
             public void onFailure(Throwable error, String content) {
-                MyToast.showCustomerToast("网路异常 获取数据失败");
-                listView.setEmptyView(errorView);
-                nTextView.setText("您还没有红包 推广app而已获取大量红包");
+                if (adpter == null) {
+                    listView.setEmptyView(errorView);
+                    nTextView.setText("您还没有红包 推广app而已获取大量红包");
+                } else {
+                    MyToast.showCustomerToast("网络异常获取数据失败");
+                }
             };
 
             @Override
@@ -163,7 +167,7 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
         Request.updateHongBao(params, new JsonHttpResponseHandler() {
             public void onFailure(Throwable error, String content) {
                 LogUtil.D("失败: " + content + error);
-                Pdialog.hiddenDialog();
+
             };
 
             public void onSuccess(int statusCode, JSONObject response) {
@@ -171,18 +175,18 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
             };
 
             public void onFinish(String url) {
-
+                Pdialog.hiddenDialog();
             };
         });
     }
 
     private void savePointHongBao(final int point) {
-        int isXiTong = hongbao.getIsXiTong();
-        boolean isTG = true;
-        if (isXiTong == 1) {
-            isTG = false;
+      
+        if (hongbao!=null&&hongbao.getIsXiTong() == 1) {
+            isxt = true;
         }
-        savePoint(Contans.HONG_BAO, point, isTG, new JsonHttpResponseHandler() {
+        LogUtil.D("savePointHongBao: "+hongbao.getIsXiTong() +": "+isxt);
+        savePoint(Contans.HONG_BAO, point, isxt, new JsonHttpResponseHandler() {
             @Override
             public void onFinish(String url) {
                 super.onFinish(url);
@@ -192,8 +196,11 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
             @Override
             public void onSuccess(int statusCode, JSONObject response) {
                 super.onSuccess(statusCode, response);
-                updateUserPoint(point);
-                addTgInfo(hongbao);
+                updateUserPoint(point,isxt);
+                if(!isxt){
+                    addTgInfo(hongbao);
+                }
+               
                 adpter.update(post);
                 post = 0;
 
@@ -209,12 +216,18 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
         });
     }
 
-    public void updateUserPoint(long point) {
+    public void updateUserPoint(long point,boolean isXT) {
         try {
-            long nowPoint = MyData.getData().getUserBean().getAllKeDouBi();
+            UserBean userBean = MyData.getData().getUserBean();
+            long nowPoint = userBean.getAllKeDouBi();
             nowPoint = nowPoint + point;
-            MyData.getData().getUserBean().setAllKeDouBi(nowPoint);
-            AlertDialogs.alert(this, "我知道了", "拆开红包获取金币 " + point + "个", false);
+            long tgMoney = userBean.getTGMoney();
+            userBean.setAllKeDouBi(nowPoint);
+            if (!isXT) {
+                userBean.setTGMoney(tgMoney + point);
+            }
+            MyData.getData().setUserBean(userBean);
+            AlertDialogs.alert(this, "我知道了", "获取金币" + point + "个,1000金币即可提现，赚钱区 做任务可以无限获取金币", false);
         } catch (Exception e) {
             MyToast.showCustomerToast("网络异常增加金币失败");
         }
@@ -229,7 +242,7 @@ public class HongBaoActivity extends BaseActivity implements CallBack, OneBtOncl
         params = new RequestParams();
         params.put("uid", MyData.getData().getUserBean().getId() + "");
         params.put("name", hongbao.getuName());
-        params.put("content", "从推广用户"+hongbao.getuName()+"获取推广金币: " + hongbao.getPoint() + "个");
+        params.put("content", "用户" + hongbao.getuName() + "安装您的推广包，您获取金币: " + hongbao.getPoint() + "个");
         Request.addTGInfo(params, new JsonHttpResponseHandler() {
             @Override
             public void onFailure(Throwable error, String content) {

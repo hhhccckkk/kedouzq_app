@@ -7,7 +7,7 @@ import org.json.JSONObject;
 
 import com.hck.httpserver.JsonHttpResponseHandler;
 import com.hck.httpserver.RequestParams;
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.bean.UserBean;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Request;
@@ -26,6 +26,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener {
     private static final int DUIHUAN_1ZFB = 0;
@@ -45,20 +46,23 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
     private EditText zfbEditText, userEditText;
     private int zhifubaoSize;
     private int moneySize;;
+    private UserBean userBean;
+    private int choujaingSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_duihuan_zfb);
+        userBean = MyData.getData().getUserBean();
         initTitle("兑换支付宝");
         initView();
         initData();
     }
 
     private void initData() {
-        userPoint = (int) (MyData.getData().getUserBean().getAllKeDouBi());
+        userPoint = (int) (userBean.getAllKeDouBi());
         money = userPoint / 1000;
-        myJinBiTextView.setText(MyData.getData().getUserBean().getAllKeDouBi() + "个" + " 至少可兑换支付宝" + money + "元");
+        myJinBiTextView.setText(userBean.getAllKeDouBi() + "个" + " 至少可兑换支付宝" + money + "元");
     }
 
     private void initView() {
@@ -81,7 +85,7 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
         subMitBtn.setOnClickListener(this);
         errorTextView = (TextView) findViewById(R.id.duihuan_error_text);
         zfbEditText = (EditText) findViewById(R.id.duihuan_zfb_name);
-        zfbEditText.setText(MyData.getData().getUserBean().getZhifubao());
+        zfbEditText.setText(userBean.getZhifubao());
         userEditText = (EditText) findViewById(R.id.duihuan_zfb_user_name);
 
     }
@@ -150,19 +154,17 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
     private void sendDataToServer(String zfb, String userName) {
         UserBean userBean = MyData.getData().getUserBean();
         if (zhifubaoSize <= 0) {
-            MyToast.showCustomerToast("兑换数量不能为0个");
+            MyToast.showCustomerToast("请选择兑换数量");
             return;
         }
         Pdialog.showDialog(this, "正在下单 请稍等..", false);
         params = new RequestParams();
         params.put("id", userBean.getId() + "");
         params.put("money", needPoint + "");
-        params.put("content", "支付宝账号：" + zfb + "h兑换人民币" + zhifubaoSize + "元");
-        params.put("shangjia1", userBean.getShangjia1() + "");
-        params.put("shangjia2", userBean.getShangjia2() + "");
-        params.put("shangjia3", userBean.getShangjia3() + "");
+        params.put("content", "支付宝成功提现" + zhifubaoSize + "元");
         params.put("userName", userBean.getName());
         params.put("size", zhifubaoSize + "");
+        params.put("info", "支付宝账号:" + zfb + "用户:" + userName + "提现 " + zhifubaoSize + "元");
         Request.addOrder(params, new JsonHttpResponseHandler() {
             public void onFinish(String url) {
                 Pdialog.hiddenDialog();
@@ -186,6 +188,10 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
                             }, 1);
                         } else {
                             updateUser();
+                            if (choujaingSize > 0) {
+                                addChouJiang(choujaingSize);
+                                choujaingSize = 0;
+                            }
                             remindNeedPoint();
                             showSuccessDialog();
                         }
@@ -216,7 +222,7 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
 
     private void showSuccessDialog() {
         final String shareContent = "这个手机赚钱软件，很不错。刚兑换了" + moneySize + "元支付宝，希望大家一起来赚钱,安装就送红包";
-        AlertDialogs.alert(this, "分享好友", "下单成功." + "软件不错，分享给好友一起来玩吧。您的好友通过分享链接下载本app安装打开即送您0.1元红包，并一直享有下线赚钱10%奖励", true,
+        AlertDialogs.alert(this, "分享好友", "下单成功." + "软件不错，分享给好友一起来玩吧。您的好友通过分享链接下载本app安装打开即送您0.3-0.8元红包，并一直享有8级下线赚钱10%奖励", true,
 
         new OneBtOnclick() {
 
@@ -260,21 +266,27 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
         switch (postion) {
         case DUIHUAN_1ZFB:
             needPoint = 1000;
+            choujaingSize = 0;
             break;
         case DUIHUAN_5ZFB:
-            needPoint = (int) (5000 * 0.98);
+            needPoint = 5000;
+            choujaingSize = 0;
             break;
         case DUIHUAN_10ZFB:
-            needPoint = (int) (10000 * 0.95);
+            needPoint = 10000;
+            choujaingSize = 1;
             break;
         case DUIHUAN_20ZFB:
-            needPoint = (int) (20000 * 0.9);
+            needPoint = 20000;
+            choujaingSize = 3;
             break;
         case DUIHUAN_50ZFB:
-            needPoint = (int) (50000 * 0.85);
+            needPoint = 50000;
+            choujaingSize = 7;
             break;
         case DUIHUAN_100ZFB:
-            needPoint = (int) (100000 * 0.80);
+            needPoint = 100000;
+            choujaingSize = 15;
             break;
 
         default:
@@ -291,6 +303,40 @@ public class DuiHuanZFBActivity extends BaseActivity implements OnClickListener 
             errorTextView.setVisibility(View.GONE);
         }
 
+    }
+
+    private void addChouJiang(final int size) {
+
+        RequestParams params = new RequestParams();
+        params.put("uid", userBean.getId() + "");
+        params.put("cjSize", size + "");
+        Request.updateChouJiangSize(params, new JsonHttpResponseHandler() {
+            public void onFailure(Throwable error, String content) {
+                MyToast.showCustomerToast("网络异常，增加抽奖次数失败");
+            };
+
+            public void onFinish(String url) {
+            };
+
+            public void onSuccess(int statusCode, JSONObject response) {
+                try {
+                    boolean isok = response.getBoolean("isok");
+                    if (isok) {
+                        Toast.makeText(DuiHuanZFBActivity.this, "恭喜您，增加了" + size + "次抽奖次数", Toast.LENGTH_SHORT).show();
+                        updateUserChouJiang(size);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            };
+        });
+
+    }
+
+    private void updateUserChouJiang(int size) {
+        UserBean userBean = MyData.getData().getUserBean();
+        int cjSize = userBean.getChoujiang() + size;
+        MyData.getData().getUserBean().setChoujiang(cjSize);
     }
 
 }

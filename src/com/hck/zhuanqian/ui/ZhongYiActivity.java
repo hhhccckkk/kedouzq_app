@@ -9,7 +9,7 @@ import org.codehaus.jackson.impl.Indenter;
 import android.os.Bundle;
 import android.view.View;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.view.MyToast;
@@ -23,6 +23,7 @@ public class ZhongYiActivity extends BaseActivity implements Integral {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zy);
+        initTitle("小亿专区");
         initAd();
         getAdInitData();
         initDownSize(findViewById(R.id.down_size));

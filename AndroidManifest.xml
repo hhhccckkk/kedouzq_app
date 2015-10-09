@@ -1,19 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hck.zhuanqian"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="com.hck.kedouzq"
+    android:versionCode="24"
+    android:versionName="2.4" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="8"
         android:targetSdkVersion="21" />
+    <!-- 百度推送需要的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 百度推送需要的权限 end -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- 读取网络信息权限，用于识别GPRS网络的接入点 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 读取手机基本信息权限，用于精确统计用户的机型等信息 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 读写sd卡的权限，用于缓存广告所用到的图片，节省流量，并可获得更好的用户体验 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 读取网络信息权限，用于识别GPRS网络的接入点 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 读取手机基本信息权限，用于精确统计用户的机型等信息 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 读写sd卡的权限，用于缓存广告所用到的图片，节省流量，并可获得更好的用户体验 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 必须加上否则会导致获取不到收入 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 必须加上否则会导致获取不到收入 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
@@ -22,7 +44,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- 以下为可选权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 以下为可选权限 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -33,13 +56,14 @@
     <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 可选，开启BUG反馈时使用 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 可选，开启BUG反馈时使用 -->
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
 
     <application
         android:name="com.hck.zhuanqian.ui.MyApplication"
-        android:icon="@drawable/icon2"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
@@ -51,7 +75,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hck.zhuanqian.ui.MainActivity" />
+        <activity
+            android:name="com.hck.zhuanqian.ui.MainActivity"
+            android:launchMode="singleTask" />
         <activity android:name="com.hck.zhuanqian.ui.ZhuanQianJiLuActivity" />
         <activity android:name="com.hck.zhuanqian.ui.TuiGuangActivity" />
         <activity android:name="com.hck.zhuanqian.ui.DuiHuanActivity" />
@@ -66,6 +92,8 @@
         <activity android:name="com.hck.zhuanqian.ui.MessageActivity" />
         <activity android:name="com.hck.zhuanqian.ui.FanKuiActivity" />
         <activity android:name="com.hck.zhuanqian.ui.TGActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.ShowTgUserActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.SendMsgActivity" />
         <activity android:name="com.hck.zhuanqian.ui.DLActivity" />
         <activity android:name="com.hck.zhuanqian.ui.DianCaiActivity" />
         <activity android:name="com.hck.zhuanqian.ui.DuoMengActivity" />
@@ -79,6 +107,21 @@
         <activity android:name="com.hck.zhuanqian.ui.JiongYouActivity" />
         <activity android:name="com.hck.zhuanqian.ui.YeGuoActivity" />
         <activity android:name="com.hck.zhuanqian.ui.KeKeActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.JinDaiActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.QuMiActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.TangGuoActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.LeDianActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.WanPuActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.DiQiActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.ChouJiangJiLuActivity" />
+        <!-- 友盟 -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="52c52fb256240ba56b184877" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="my" />
         <!-- 点乐广告 -->
         <activity
             android:name="com.dlnetwork.DevNativeActivity"
@@ -131,7 +174,8 @@
 
         <meta-data
             android:name="DTN_PLACE_ID"
-            android:value="DTN" /> <!-- 大头鸟结束 -->
+            android:value="DTN" />
+        <!-- 大头鸟结束 -->
 
 
         <!-- 有米广告 -->
@@ -156,7 +200,8 @@
 
                 <data android:scheme="package" />
             </intent-filter>
-        </receiver> <!-- 有米结束 -->
+        </receiver>
+        <!-- 有米结束 -->
 
 
         <!-- 米迪 -->
@@ -191,41 +236,8 @@
             </intent-filter>
         </receiver>
         <!-- 果盟结束 -->
-        <!-- 麒点广告 开始 -->
-        <activity android:name="com.qidian.intwal.QDAlertActivity" />
-        <activity android:name="com.qidian.intwal.QDIntWaActivity" />
 
-        <service android:name="com.qidian.intwal.Service01" >
-            <intent-filter>
-                <action android:name="com.exe.server01" />
-            </intent-filter>
-        </service>
 
-        <receiver
-            android:name="com.qidian.intwal.QDBrocastReciver"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="com.hck.zhuanqian" />
-            </intent-filter>
-        </receiver> <!-- 麒点结束 -->
-        <!-- 麒点开始 -->
-        <activity
-            android:name="com.zy.phone.sdk.SDKActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <!-- 广播注册 -->
-        <receiver android:name="com.zy.phone.service.BootReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-        <!-- 注册服务 -->
-        <service android:name="com.zy.phone.service.ZYService" >
-        </service>
-        <!-- 麒点结束 -->
         <!-- 贝多广告开始 -->
         <activity
             android:name="com.bb.dd.Browser"
@@ -238,7 +250,8 @@
         </activity>
 
         <service android:name="com.bb.dd.BDService" >
-        </service> <!-- 贝多结束 -->
+        </service>
+        <!-- 贝多结束 -->
         <!-- 炅友开始 -->
         <activity
             android:name="com.jy.func.JYOfferActivity"
@@ -278,7 +291,8 @@
 
                 <data android:scheme="package" />
             </intent-filter>
-        </receiver> <!-- 可可结束 -->
+        </receiver>
+        <!-- 可可结束 -->
         <!-- 中亿开始 -->
         <activity
             android:name="com.zy.phone.sdk.SDKActivity"
@@ -288,6 +302,69 @@
         <service android:name="com.zy.phone.service.ZYService" >
         </service>
         <!-- 中亿结束 -->
+        <!-- 金袋广告开始 -->
+        <meta-data
+            android:name="PUBLISHER_ID_INTEGRAL"
+            android:value="8C77065747FC1FC6F555B5CA256C1913F16FE949" />
+
+        <activity
+            android:name="com.jd.integral.ShowJdActivity"
+            android:configChanges="keyboardHidden|orientation|navigation" />
+        <!-- 金袋广告结束 -->
+        <!-- 糖果平台开始 -->
+        <activity
+            android:name="com.chuannuo.tangguo.TangGuoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <!-- 下载service -->
+        <service android:name="com.chuannuo.tangguo.DownloadService" >
+        </service>
+
+        <meta-data
+            android:name="TANGGUO_APPKEY"
+            android:value="293" />
+        <meta-data
+            android:name="TANGGUO_APPID"
+            android:value="rjbg53" />
+        <!-- 糖果平台结束 -->
+        <!-- 乐点平台 -->
+        <activity android:name="com.lerdian.wall.MainActivity" >
+        </activity>
+        <activity android:name="com.lerdian.wall.DetailActivity" />
+        <activity android:name="com.lerdian.wall.point.DetailActivity" />
+        <activity android:name="com.lerdian.search.SearchResult" />
+        <activity android:name="com.lerdian.wall.point.FeedbackActivity" />
+        <activity android:name="com.lerdian.wall.point.StateActivity" />
+        <activity android:name="com.lerdian.wall.point.MainActivity" >
+        </activity>
+
+        <service android:name="com.lerdian.wall.point.DetailService" >
+            <intent-filter>
+                <action android:name="com.lerdian.wall.point.DetailService" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="LERDIAN_CHANNEL"
+            android:value="da70f0da3a0b4dd2a2296f85668e7e39" />
+
+        <!-- 乐点结束 -->
+        <!-- 第七开始 -->
+        <activity
+            android:name="com.dyk.hfsdk.ui.ScoreWallActivity"
+            android:configChanges="orientation|screenSize" >
+        </activity>
+
+        <service android:name="com.dyk.hfsdk.util.DetectionService" >
+            <intent-filter android:priority="1000" >
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.dyk.hfsdk.ui.ImgSubmit"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <!-- 第七结束 -->
 
 
         <!-- 分享 -->
@@ -298,7 +375,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" >
             <intent-filter>
-                <data android:scheme="tencent1104813490" />
+                <data android:scheme="tencent1104666314" />
 
                 <action android:name="android.intent.action.VIEW" />
 
@@ -308,11 +385,85 @@
         </activity>
         <!-- 微信分享 -->
         <activity
-            android:name=".wxapi.WXEntryActivity"
+            android:name="com.hck.zhuanqian.wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 百度推送开始 -->
+        <!-- 百度push应用定义消息receiver声明 -->
+        <receiver android:name="com.hck.zhuanqian.receiver.BaiduPushMsgReceiver" >
+            <intent-filter>
+
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 百度必须的receviver和service声明 -->
+        <receiver
+            android:name="com.baidu.android.pushservice.PushServiceReceiver"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
+                <!-- 以下四项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.baidu.android.pushservice.RegistrationReceiver"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD" />
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.baidu.android.pushservice.PushService"
+            android:exported="true"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
+            </intent-filter>
+        </service>
+        <!--
+        4.4版本新增的CommandService声明，提升小米和魅族手机上的实际推送到达率  -->
+        <service
+            android:name="com.baidu.android.pushservice.CommandService"
+            android:exported="true" />
+        <meta-data
+            android:name="api_key"
+            android:value="SSU3w1mztIedmDXTBRcCsAPb" />
+        <!-- 我们自己的receiver，接受相关推送信息 -->
+        <receiver android:name="com.hck.zhuanqian.receiver.BaiduPushMsgReceiver" >
+            <intent-filter>
+
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <!-- 接收bind、setTags等method的返回结果 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <!-- 接收通知点击事件，和通知自定义内容 -->
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+            </intent-filter>
+        </receiver>
+        <!-- push结束 -->
+        <!-- 百度推送结束 -->
     </application>
 
 </manifest>

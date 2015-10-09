@@ -38,9 +38,6 @@ public class MyData {
         this.shareBean = shareBean;
     }
 
-    public static MyData getMyData() {
-        return myData;
-    }
 
     public static void setMyData(MyData myData) {
         MyData.myData = myData;

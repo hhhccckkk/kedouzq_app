@@ -51,18 +51,18 @@
         Id="1"
         RedirectUrl="http://www.sina.com"
         ShareByAppClient="false"
-        SortId="2" />
+        SortId="5" />
 
     
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
 
     <QZone
-        AppId="1104813490"
+        AppId="1104666314"
         AppKey="7fp7UDo1BKfpGE26"
         Enable="true"
         Id="3"
         ShareByAppClient="false"
-        SortId="3" />
+        SortId="4" />
 
     <!--
         Wechat微信和WechatMoments微信朋友圈的appid是一样的；
@@ -84,7 +84,7 @@
         BypassApproval="false"
         Enable="true"
         Id="4"
-        SortId="4" />
+        SortId="2" />
 
     <WechatMoments
         AppId="wxcc8523ac533f20d2"
@@ -92,14 +92,14 @@
         BypassApproval="false"
         Enable="true"
         Id="5"
-        SortId="5" />
+        SortId="3" />
 
    
 
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
 
     <QQ
-        AppId="1104813490"
+        AppId="1104666314"
         AppKey="7fp7UDo1BKfpGE26"
         Enable="true"
         Id="7"

@@ -13,7 +13,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.hck.httpserver.JsonHttpResponseHandler;
 import com.hck.httpserver.RequestParams;
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.adapter.TuiGuangAdapter;
 import com.hck.zhuanqian.bean.TuiGBean;
 import com.hck.zhuanqian.data.MyData;

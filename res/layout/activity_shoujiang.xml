@@ -2,59 +2,44 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f0f0f0"
+    android:background="#ffffff"
     android:orientation="vertical" >
 
     <LinearLayout
+        android:background="#f0f0f0"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/myPoint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@color/white"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:textColor="#ff0000"
-            android:textSize="16dp" />
+       
 
         <TextView
             android:id="@+id/choujiangSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:textColor="#ff0000"
-            android:textSize="16dp" />
+            android:textSize="18dp" />
 
         <TextView
+            android:paddingTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:paddingBottom="3dp"
+            android:paddingBottom="5dp"
             android:paddingLeft="10dp"
-            android:text="每次需要消耗一次抽奖次数。每天第一次分享好友可以获取一次抽奖次数.分享qq好友后，请点击留在qq，然后在点击返回键，返回本应用，不然获取不到抽奖次数"
+            android:text="每次需要消耗一次抽奖次数。抽奖次数可以在体现兑换Q币或者支付宝时候获取，兑换越多奖励越多"
             android:textColor="#ff0000"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <FrameLayout
+        
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp" >
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/bigwheelgg"
-            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/main_wheel"
@@ -86,8 +71,8 @@
         android:background="@drawable/duihuan_btn_submit_selector"
         android:gravity="center"
         android:onClick="shareApp"
-        android:text="分享好友获取抽奖次数"
+        android:text="最新抽奖记录"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
 </FrameLayout>

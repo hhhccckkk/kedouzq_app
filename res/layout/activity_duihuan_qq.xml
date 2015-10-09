@@ -6,8 +6,9 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:minHeight="45dp"
         android:layout_width="fill_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="horizontal" >
 
@@ -25,8 +26,8 @@
         <TextView
             android:id="@+id/duihuan_my_jinbi"
             android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:drawablePadding="5dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:textColor="#f21616"
@@ -91,7 +92,7 @@
                 android:id="@+id/duihuan_5"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/duihuan_btn_selector"
                 android:button="@null"
@@ -103,12 +104,12 @@
                 android:id="@+id/duihuan_10"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/duihuan_btn_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:text="10个"
+                android:text="10个(抽奖+1)"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -129,31 +130,31 @@
                 android:background="@drawable/duihuan_btn_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:text="20个"
+                android:text="20个(抽奖+3)"
                 android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/duihuan_50"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/duihuan_btn_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:text="50个"
+                android:text="50个(抽奖+7)"
                 android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/duihuan_100"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/duihuan_btn_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:text="100个"
+                android:text="100个(抽奖+15)"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -208,15 +209,6 @@
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="3dp"
-                android:text="每次兑换越多，优惠越多"
-                android:textColor="#999999"
-                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 

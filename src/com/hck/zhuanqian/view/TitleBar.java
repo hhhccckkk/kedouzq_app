@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 
 /**
  * 公用title.

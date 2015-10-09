@@ -1,36 +1,17 @@
 package com.hck.zhuanqian.ui;
 
-import java.util.HashMap;
-
-import org.json.JSONObject;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.PlatformActionListener;
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
-import cn.sharesdk.sina.weibo.SinaWeibo;
-import cn.sharesdk.wechat.friends.Wechat;
 
-import com.hck.httpserver.JsonHttpResponseHandler;
-import com.hck.httpserver.RequestParams;
-import com.hck.zhuanqian.R;
-import com.hck.zhuanqian.bean.ShareBean;
-import com.hck.zhuanqian.bean.TgAppBean;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.bean.UserBean;
+import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.data.MyData;
-import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.net.Urls;
 import com.hck.zhuanqian.util.FileUtil;
-import com.hck.zhuanqian.util.JsonUtils;
-import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.util.ShareUtil;
 import com.hck.zhuanqian.view.MyToast;
 import com.hck.zhuanqian.view.Pdialog;
@@ -51,7 +32,7 @@ public class TGActivity extends BaseActivity {
 
     public void share(View view) {
 
-        ShareUtil.share(this,null , handler);
+        ShareUtil.share(this, null, handler);
 
     }
 
@@ -70,7 +51,8 @@ public class TGActivity extends BaseActivity {
     private void initData() {
         UserBean userBean = MyData.getData().getUserBean();
         if (userBean != null) {
-            downAppUrl = Urls.MAIN_HOST_URL + "downApp?uid=" + userBean.getId();
+            long userId = Contans.DEFAULT_ID + userBean.getId();
+            downAppUrl = Urls.MAIN_HOST_URL + "downApp?uid=" + userId;
         }
 
     }
@@ -85,7 +67,8 @@ public class TGActivity extends BaseActivity {
 
     public void copy(View view) {
         UserBean userBean = MyData.getData().getUserBean();
-        String downUrl = Urls.MAIN_HOST_URL + "downapk.jsp?id=" + userBean.getId();
+        long id = Contans.DEFAULT_ID + userBean.getId();
+        String downUrl = Urls.MAIN_HOST_URL + "downApp?uid=" + id;
         FileUtil.copy(downUrl, this);
         MyToast.showCustomerToast("复制成功，输入框长按可以粘贴");
     }

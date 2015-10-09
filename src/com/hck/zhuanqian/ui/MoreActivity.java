@@ -1,6 +1,6 @@
 package com.hck.zhuanqian.ui;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.util.MyPreferences;
 
@@ -66,7 +66,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
 
     public void startPinLunActivity() {
         try {
-            Uri uri = Uri.parse("market://details?id=" + "com.hck.zhuanqian");
+            Uri uri = Uri.parse("market://details?id=" + "com.hck.kedouzhuanqian");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);

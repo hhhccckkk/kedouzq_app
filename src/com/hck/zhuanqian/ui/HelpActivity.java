@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 
-import com.hck.zhuanqian.R;
+import com.hck.kedouzq.R;
 
 public class HelpActivity extends BaseActivity {
 	private WebView help;
