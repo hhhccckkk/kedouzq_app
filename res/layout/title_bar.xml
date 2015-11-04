@@ -5,10 +5,10 @@
     android:background="#e55107" >
 
     <ImageView
-        android:layout_gravity="left"
         android:id="@+id/titleBackBtn"
         android:layout_width="50dp"
         android:layout_height="match_parent"
+        android:layout_gravity="left"
         android:background="@drawable/btn_title_selector"
         android:paddingLeft="17dp"
         android:paddingRight="10dp"
@@ -25,5 +25,20 @@
         android:singleLine="true"
         android:textColor="@color/white"
         android:textSize="20sp" />
+
+    <Button
+        android:padding="5dp"
+        android:id="@+id/right_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/duihuan_btn_submit_selector"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone" />
 
 </FrameLayout>

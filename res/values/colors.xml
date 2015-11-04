@@ -15,5 +15,6 @@
        <color name="dialog_divider">#e0e0e0</color>
     <color name="dialog_title_color">#333333</color>
     <color name="dialog_content_color">#666666</color>
+    <color name="title_red">#e55107</color>
 
 </resources>

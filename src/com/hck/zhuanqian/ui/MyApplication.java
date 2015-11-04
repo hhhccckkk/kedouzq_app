@@ -1,4 +1,5 @@
 package com.hck.zhuanqian.ui;
+
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -21,8 +22,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        B.a(HCK());
-        LogUtil.isPrintLog = false;
+        // B.a(HCK());
+        LogUtil.isPrintLog = true;
         context = this;
         new MyPreferences(this);
         initImagerLoder();
@@ -35,15 +36,10 @@ public class MyApplication extends Application {
     public native String HCK();
 
     private void initImagerLoder() {
-
-        DisplayImageOptions options = new DisplayImageOptions.Builder().cacheOnDisc(true).cacheInMemory(true)
-
-        .imageScaleType(ImageScaleType.IN_SAMPLE_INT).bitmapConfig(Bitmap.Config.RGB_565).displayer(new RoundedBitmapDisplayer(5)).build();
+        DisplayImageOptions options = new DisplayImageOptions.Builder().cacheOnDisc(true).cacheInMemory(true).bitmapConfig(Bitmap.Config.RGB_565).build();
         ImageLoaderConfiguration config2 = new ImageLoaderConfiguration.Builder(getApplicationContext()).threadPriority(Thread.NORM_PRIORITY - 2)
-                .memoryCache(new WeakMemoryCache())
-
-                .defaultDisplayImageOptions(options).denyCacheImageMultipleSizesInMemory().discCacheFileNameGenerator(new Md5FileNameGenerator())
-                .tasksProcessingOrder(QueueProcessingType.LIFO).enableLogging().build();
+                .memoryCache(new WeakMemoryCache()).defaultDisplayImageOptions(options).denyCacheImageMultipleSizesInMemory()
+                .discCacheFileNameGenerator(new Md5FileNameGenerator()).tasksProcessingOrder(QueueProcessingType.LIFO).enableLogging().build();
         ImageLoader.getInstance().init(config2);
 
     }

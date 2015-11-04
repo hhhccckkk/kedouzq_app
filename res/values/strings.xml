@@ -5,21 +5,21 @@
     <string name="main_yue">我的金币</string>
     <string name="main_all_money">一共赚钱%1$s</string>
     <string name="main_mingxi">兑换</string>
-    <string name="main_choujiang">抽奖</string>
+    <string name="main_huodong">活动</string>
     <string name="main_help">帮助</string>
-    <string name="main_order">账单</string>
+    <string name="main_order">排行</string>
     <string name="main_more">更多</string>
     <string name="pull_to_refresh">下拉以加载…</string>
     <string name="release_to_refresh">松开可刷新…</string>
     <string name="is_refreshing">正在刷新中…</string>
     <string name="kefu">1056471646</string>
-     <!--软件升级-->
+    <!-- 软件升级 -->
     <string name="update_app_title">检测到新版本</string>
     <string name="update_app_content">更新到新版本?</string>
     <string name="update_app_start">开始升级</string>
     <string name="update_app_nt_title">软件正在下载中</string>
     <string name="update_down_get_version_error">版本信息错误</string>
-     <string name="update_wait_info">正在更新，请稍候&#8230;</string>
+    <string name="update_wait_info">正在更新，请稍候&#8230;</string>
     <string name="update_down_error_content">下载失败，请检查您的网络</string>
     <string name="update_down_bad_sdCard_content">下载失败，SD卡不可用</string>
     <string name="update_down_file_bad">下载失败，下载的文件错误</string>
@@ -28,4 +28,5 @@
     <string name="update_down_file_not_exit">下载失败，请重试</string>
     <string name="update">立即更新</string>
     <string name="update_nt">检测到新版本，请更新后使用</string>
+
 </resources>

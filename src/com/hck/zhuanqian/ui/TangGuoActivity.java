@@ -27,14 +27,12 @@ public class TangGuoActivity extends BaseActivity {
 
                 @Override
                 public void onSign(int arg0, String arg1, int arg2) {
-                    LogUtil.D("onSign: "+arg0+":"+arg1+":"+arg2);
                     if (arg0==1 && arg2>0) {
                         savePoint(Contans.AD_NMAE_GUOMENG, arg2);
                     }
                 }
                 @Override
                 public void onAddPoint(int arg0, String arg1, int arg2) {
-                    LogUtil.D("onAddPoint: "+arg0+":"+arg1+":"+arg2);
                     if (arg0==1 && arg2>0) {
                         savePoint(Contans.AD_NMAE_GUOMENG, arg2);
                     }

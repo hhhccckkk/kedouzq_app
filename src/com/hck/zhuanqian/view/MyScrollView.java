@@ -11,7 +11,11 @@ import android.widget.ScrollView;
 public class MyScrollView extends ScrollView {
     private GestureDetector mGestureDetector;
     View.OnTouchListener mGestureListener;
-
+    public MyScrollView(Context context){
+        super(context);
+        mGestureDetector = new GestureDetector(context, new YScrollDetector());
+        setFadingEdgeLength(0);
+    }
     public MyScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mGestureDetector = new GestureDetector(context, new YScrollDetector());

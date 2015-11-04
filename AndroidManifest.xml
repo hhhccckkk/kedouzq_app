@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hck.kedouzq"
-    android:versionCode="24"
-    android:versionName="2.4" >
+    android:versionCode="26"
+    android:versionName="2.6" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -67,6 +67,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
+            android:screenOrientation="portrait"
             android:name="com.hck.zhuanqian.ui.SplashActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -114,6 +115,12 @@
         <activity android:name="com.hck.zhuanqian.ui.WanPuActivity" />
         <activity android:name="com.hck.zhuanqian.ui.DiQiActivity" />
         <activity android:name="com.hck.zhuanqian.ui.ChouJiangJiLuActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.CreditActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.ShowMsgXiangXiActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.ShowNewDuiHuanActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.PaiHangActivity" />
+        <activity android:name="com.hck.zhuanqian.ui.HuoDongActivity" />
+          <activity android:name="com.hck.zhuanqian.ui.XinShouActivity" />
         <!-- 友盟 -->
         <meta-data
             android:name="UMENG_APPKEY"
@@ -121,7 +128,7 @@
         </meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="my" />
+            android:value="mumayi" />
         <!-- 点乐广告 -->
         <activity
             android:name="com.dlnetwork.DevNativeActivity"
@@ -253,17 +260,15 @@
         </service>
         <!-- 贝多结束 -->
         <!-- 炅友开始 -->
-        <activity
-            android:name="com.jy.func.JYOfferActivity"
+        <activity android:name="com.jy.func.JYOfferActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask" />
-        <!-- jarwall内容详情页 -->
-        <activity
-            android:name="com.jy.func.JYOfferDetail"
+            android:launchMode="singleTask"/>
+ <!-- jarwall内容详情页 -->
+ <activity android:name="com.jy.func.JYOfferDetail"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"/>
+ <service android:name="com.jy.func.JYService" />  
 
-        <service android:name="com.jy.func.JYService" />
         <!-- 炅友结束 -->
         <!-- 椰果开始 -->
         <activity
@@ -392,19 +397,9 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <!-- 百度推送开始 -->
-        <!-- 百度push应用定义消息receiver声明 -->
-        <receiver android:name="com.hck.zhuanqian.receiver.BaiduPushMsgReceiver" >
-            <intent-filter>
 
-                <!-- 接收push消息 -->
-                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
-                <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
-                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
-                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
-            </intent-filter>
-        </receiver>
 
-        <!-- 百度必须的receviver和service声明 -->
+        <!-- push必须的receviver和service声明 -->
         <receiver
             android:name="com.baidu.android.pushservice.PushServiceReceiver"
             android:process=":bdservice_v1" >
@@ -442,11 +437,11 @@
                 <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
             </intent-filter>
         </service>
-        <!--
-        4.4版本新增的CommandService声明，提升小米和魅族手机上的实际推送到达率  -->
         <service
             android:name="com.baidu.android.pushservice.CommandService"
-            android:exported="true" />
+            android:exported="true" />
+        <!-- push结束 -->
+
         <meta-data
             android:name="api_key"
             android:value="SSU3w1mztIedmDXTBRcCsAPb" />

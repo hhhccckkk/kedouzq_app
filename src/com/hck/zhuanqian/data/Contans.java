@@ -2,6 +2,7 @@ package com.hck.zhuanqian.data;
 
 public class Contans {
     public static final String APP_DOWN_PATH="kedou";
+    public static final String HAS_MSG="has_msg";
     public static final int CHOUJIANG = 101;
     public static final String HONG_BAO = "ºì°ü";
     public static final int TYPE_HONGBAO = 100;

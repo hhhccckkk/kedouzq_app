@@ -3,6 +3,7 @@ package com.hck.zhuanqian.net;
 import java.net.URL;
 
 import android.content.pm.PackageInfo;
+import android.text.TextUtils;
 
 import com.hck.httpserver.HCKHttpClient;
 import com.hck.httpserver.HCKHttpResponseHandler;
@@ -11,6 +12,7 @@ import com.hck.zhuanqian.bean.UserBean;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Urls;
 import com.hck.zhuanqian.util.AppManager;
+import com.hck.zhuanqian.util.JIAMI;
 import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.view.MyToast;
 
@@ -22,10 +24,7 @@ public class Request {
         client.setTimeout(TIME_OUT);
     }
 
-    private static void post(String method, HCKHttpResponseHandler handler) {
-        RequestParams params = new RequestParams();
-        post(method, params, handler);
-    }
+   
 
     public static void post(String method, RequestParams params, HCKHttpResponseHandler handler) {
         params.put("password", MyData.key);
@@ -358,5 +357,43 @@ public class Request {
      */
     public static void getAppInfo(RequestParams params, HCKHttpResponseHandler handler) {
         get(Urls.GET_APP_INFO, params, handler);
+    }
+
+    /**
+     * 获取兑吧免登陆url.
+     */
+    public static void getLoginUrl(RequestParams params, HCKHttpResponseHandler handler) {
+        get(Urls.GET_DuiBa_Login_URL, params, handler);
+    }
+
+    /**
+     * 获取赚钱排行
+     * 
+     * @param handler
+     */
+    public static void getZhuanQianPh(HCKHttpResponseHandler handler) {
+        get(Urls.GET_MONEY_PAIHANG, handler);
+    }
+
+    /**
+     * 获取推广排行.
+     * 
+     * @param handler
+     */
+    public static void getTuiGuangPh(HCKHttpResponseHandler handler) {
+        get(Urls.GET_TG_PAIHANG, handler);
+    }
+
+    /**
+     * 获取活动
+     * 
+     * @param handler
+     */
+    public static void getHuoDong(HCKHttpResponseHandler handler) {
+        get(Urls.GET_HUODONG, handler);
+    }
+    
+    public static void getHuoDongUrl(RequestParams params, HCKHttpResponseHandler handler){
+        get(Urls.GET_HUODONG_URL, params,handler);
     }
 }

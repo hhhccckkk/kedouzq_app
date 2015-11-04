@@ -10,7 +10,7 @@
         android:layout_height="45dp"
         android:background="@color/white"
         android:gravity="center"
-        android:text="1000金币=1元,点击下面栏目开始赚钱"
+        android:text="1000金币=1元,上滑加载更多"
         android:textColor="@color/red"
         android:textSize="16sp" />
 

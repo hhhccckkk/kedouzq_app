@@ -2,7 +2,6 @@ package com.hck.zhuanqian.ui;
 
 import org.json.JSONObject;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -20,9 +19,7 @@ import com.hck.httpserver.RequestParams;
 import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Request;
-import com.hck.zhuanqian.util.AppManager;
 import com.hck.zhuanqian.util.LogUtil;
-import com.hck.zhuanqian.view.CustomAlertDialog;
 import com.hck.zhuanqian.view.MyToast;
 import com.hck.zhuanqian.view.TitleBar;
 import com.umeng.analytics.MobclickAgent;
@@ -45,6 +42,7 @@ public class BaseActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+      
     }
 
     public boolean getAirplaneMode() {
@@ -70,6 +68,16 @@ public class BaseActivity extends FragmentActivity {
         initTitleBar();
         ViewGroup root = getRootView();
         View paramView = getLayoutInflater().inflate(layout, null);
+        root.addView(mTitleBar, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        root.addView(paramView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        super.setContentView(root);
+    }
+
+    public void setContentView(View view) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        initTitleBar();
+        ViewGroup root = getRootView();
+        View paramView =view;
         root.addView(mTitleBar, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         root.addView(paramView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         super.setContentView(root);

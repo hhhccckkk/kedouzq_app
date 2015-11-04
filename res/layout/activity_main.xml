@@ -203,7 +203,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:text="@string/main_choujiang"
+                android:text="@string/main_huodong"
                 android:textColor="#333333"
                 android:textSize="16sp" />
 
@@ -223,7 +223,7 @@
             android:background="#d5d5d5" />
 
         <TextView
-            android:id="@+id/order"
+            android:id="@+id/paihang"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -232,6 +232,11 @@
             android:text="@string/main_order"
             android:textColor="#333333"
             android:textSize="16sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#d5d5d5" />
 
         <View
             android:layout_width="1dp"
@@ -315,6 +320,8 @@
             android:layout_height="1dp"
             android:background="#40d5d5d5" />
 
+        
+
         <RelativeLayout
             android:id="@+id/home_getMoney"
             android:layout_width="match_parent"
@@ -323,13 +330,13 @@
             android:background="@drawable/tv_title_selector" >
 
             <ImageView
-                android:scaleType="fitXY"
                 android:id="@+id/home_zq_img"
-                  android:layout_width="wrap_content"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/zhuanqian" />
 
             <TextView
@@ -350,7 +357,7 @@
                 android:drawablePadding="5dp"
                 android:drawableRight="@drawable/list_ico_arrow"
                 android:gravity="center_vertical"
-                android:text="3分钟可赚一元"
+                android:text="免费赚取金币"
                 android:textColor="#666666"
                 android:textSize="16sp" />
         </RelativeLayout>
@@ -369,7 +376,7 @@
 
             <ImageView
                 android:id="@+id/home_hb_img"
-                 android:layout_width="wrap_content"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
@@ -415,7 +422,7 @@
 
             <ImageView
                 android:id="@+id/home_zq_img2"
-                  android:layout_width="wrap_content"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
@@ -440,7 +447,7 @@
                 android:drawablePadding="5dp"
                 android:drawableRight="@drawable/list_ico_arrow"
                 android:gravity="center_vertical"
-                android:text="1元起提现=1000金币"
+                android:text="兑换Q币支付宝等"
                 android:textColor="#666666"
                 android:textSize="16sp" />
         </RelativeLayout>
@@ -460,7 +467,7 @@
 
             <ImageView
                 android:id="@+id/home_zq_img3"
-                 android:layout_width="wrap_content"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
@@ -485,10 +492,11 @@
                 android:drawablePadding="5dp"
                 android:drawableRight="@drawable/list_ico_arrow"
                 android:gravity="center_vertical"
-                android:text="超牛逼8级徒弟推广奖励"
+                android:text="8级推广奖励10%分成"
                 android:textColor="#666666"
                 android:textSize="16sp" />
         </RelativeLayout>
+       
     </LinearLayout>
 
 </LinearLayout>

@@ -20,11 +20,13 @@ import com.hck.httpserver.JsonHttpResponseHandler;
 import com.hck.httpserver.RequestParams;
 import com.hck.kedouzq.R;
 import com.hck.zhuanqian.bean.UserBean;
+import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.ui.MainActivity;
 import com.hck.zhuanqian.ui.SplashActivity;
 import com.hck.zhuanqian.util.LogUtil;
+import com.hck.zhuanqian.util.MyPreferences;
 
 public class BaiduPushMsgReceiver extends PushMessageReceiver {
 
@@ -79,10 +81,9 @@ public class BaiduPushMsgReceiver extends PushMessageReceiver {
 
     @Override
     public void onBind(Context arg0, int arg1, String arg2, String arg3, String arg4, String arg5) {
-        LogUtil.D("onBindonBind: "+arg4);
         try {
             UserBean userBean = MyData.getData().getUserBean();
-          
+
             if (userBean == null) {
                 return;
             }
@@ -91,7 +92,7 @@ public class BaiduPushMsgReceiver extends PushMessageReceiver {
             }
         } catch (Exception e) {
         }
-        
+
     }
 
     @Override
@@ -99,6 +100,10 @@ public class BaiduPushMsgReceiver extends PushMessageReceiver {
         try {
             JSONObject object = new JSONObject(arg1);
             Intent intent = new Intent(arg0, SplashActivity.class);
+            if (object.getInt("open_type") == 1) {
+                intent.putExtra("hasMsg", true);
+            }
+            MyPreferences.saveBoolean(Contans.HAS_MSG, true);
             String title = object.getString("title");
             String msg = object.getString("description");
             sendNotification(arg0, title, title, msg, intent, 1);

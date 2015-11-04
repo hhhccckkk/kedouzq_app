@@ -31,14 +31,17 @@ import com.hck.httpserver.RequestParams;
 import com.hck.kedouzq.R;
 import com.hck.zhuanqian.bean.ShareBean;
 import com.hck.zhuanqian.bean.UserBean;
+import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.util.AppManager;
 import com.hck.zhuanqian.util.FileUtil;
+import com.hck.zhuanqian.util.JIAMI;
 import com.hck.zhuanqian.util.JsonUtils;
 import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.util.MyPreferences;
 import com.hck.zhuanqian.util.MyTools;
+import com.hck.zhuanqian.util.NetWorkUtils;
 import com.hck.zhuanqian.view.CustomAlertDialog;
 import com.hck.zhuanqian.view.MyToast;
 import com.hck.zhuanqian.view.Pdialog;
@@ -54,10 +57,13 @@ public class SplashActivity extends Activity {
     private Button loginBtn;
     private View pBar;
     CustomAlertDialog dialog;
+    boolean hasMsg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        hasMsg = getIntent().getBooleanExtra(Contans.HAS_MSG, false);
         initData();
         ShareSDK.initSDK(this);
         setContentView(R.layout.activity_splash);
@@ -65,6 +71,7 @@ public class SplashActivity extends Activity {
         startAnim();
         getShareInfo();
         setListener();
+      
     }
 
     private void initData() {
@@ -85,9 +92,8 @@ public class SplashActivity extends Activity {
 
             }
         } catch (Exception e) {
-            ids=null;
+            ids = null;
         }
-       
 
     }
 
@@ -121,15 +127,14 @@ public class SplashActivity extends Activity {
         Request.getShareInfo(new JsonHttpResponseHandler() {
             @Override
             public void onFailure(Throwable error, String content) {
-                LogUtil.D("content: " + content + error);
                 showNetErrorDialog();
                 pBar.setVisibility(View.GONE);
+                LogUtil.D("error: "+error+content);
             };
 
             @Override
             public void onSuccess(int statusCode, JSONObject response) {
                 super.onSuccess(statusCode, response);
-                LogUtil.D("shareinfo: " + response.toString());
                 boolean isOK = false;
                 try {
                     isOK = response.getBoolean("isok");
@@ -157,7 +162,7 @@ public class SplashActivity extends Activity {
             public void onFinish(String url) {
                 super.onFinish(url);
                 LogUtil.D("url: " + url);
-               
+
             }
         }, 2);
     }
@@ -167,7 +172,7 @@ public class SplashActivity extends Activity {
             return;
         }
 
-        dialog= new CustomAlertDialog(this);
+        dialog = new CustomAlertDialog(this);
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setLeftText("我知道了");
@@ -177,7 +182,7 @@ public class SplashActivity extends Activity {
         dialog.setOnLeftListener(new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-               
+
             }
         });
 
@@ -251,6 +256,7 @@ public class SplashActivity extends Activity {
                 Platform platform = (Platform) msg.obj;
                 PlatformDb platDB = platform.getDb();
                 if (platDB != null) {
+                    MyPreferences.saveString("key", platDB.getUserId());
                     addUser(platDB.getUserId(), platDB.getUserName(), platDB.getUserIcon());
                 } else {
                     MyToast.showCustomerToast("登录失败");
@@ -264,7 +270,6 @@ public class SplashActivity extends Activity {
      * 注册用户到服务器.
      */
     private void addUser(String userId, String userName, String userTX) {
-        LogUtil.D("id: "+userId);
         if (TextUtils.isEmpty(MyTools.getImei(this))) {
             MyToast.showCustomerToast("获取手机imei失败");
             showGetImeiErrorDialog();
@@ -285,7 +290,8 @@ public class SplashActivity extends Activity {
         params.put("userId", userId);
         params.put("userName", userName);
         params.put("userTX", userTX);
-
+        params.put("ip", NetWorkUtils.getLocalIpAddress(this)+"");
+       
         if (ids != null) {
             if (ids.size() == 1) {
                 params.put("shangjia1", ids.get(0) + "");
@@ -353,18 +359,23 @@ public class SplashActivity extends Activity {
                     type = response.getInt("type");
                     if (type == Request.REQUEST_SUCCESS) {
                         userBean = JsonUtils.parse(response.getString("user"), UserBean.class);
-                          if(userBean!=null && userBean.getIsok()==0){
-                              alertLoginD("您违反了相关规定，账号已被禁用"); 
-                              clearnUser();
-                              return;
+                        if (userBean != null && userBean.getIsok() == 0) {
+                            alertLoginD("您违反了相关规定，账号已被禁用");
+                            clearnUser();
+                            return;
                         }
                         MyPreferences.saveString("user", response.getString("user"));
                         MyData.getData().setUserBean(userBean);
-                        startMainActivity();
+                        if (hasMsg) {
+                            startMsgActivity();
+                        } else {
+                            startMainActivity();
+                        }
+
                     } else if (type == 0) {
                         MyToast.showCustomerToast("登录失败 请检查您的网络");
-                    } else if (type == 2 || type==3) {
-                        String errorMsg=response.getString("msg");
+                    } else if (type == 2 || type == 3) {
+                        String errorMsg = response.getString("msg");
                         alertLoginD(errorMsg);
                         clearnUser();
                         loginBtn.setVisibility(View.VISIBLE);
@@ -396,6 +407,11 @@ public class SplashActivity extends Activity {
 
     private void startMainActivity() {
         startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
+
+    private void startMsgActivity() {
+        startActivity(new Intent(this, MessageActivity.class));
         finish();
     }
 
@@ -463,9 +479,9 @@ public class SplashActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         handler.removeCallbacks(null);
-        if (dialog!=null) {
+        if (dialog != null) {
             dialog.dismiss();
-            dialog=null;
+            dialog = null;
         }
     }
 

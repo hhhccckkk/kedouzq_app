@@ -8,6 +8,7 @@ import android.webkit.WebView;
 import com.hck.kedouzq.R;
 import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.view.AlertDialogs;
+import com.hck.zhuanqian.view.MyToast;
 import com.lostip.sdk.offerwalllibrary.LostipOfferWall;
 import com.lostip.sdk.offerwalllibrary.LostipOfferWallListener;
 import com.lostip.sdk.offerwalllibrary.entity.Point;
@@ -48,8 +49,13 @@ public class KeKeActivity extends BaseActivity {
 	}
 
 	private void initAd() {
-		LostipOfferWall.setPlatformId(Contans.KE_KE_KEY);
-		LostipOfferWall.init(this);
+	    try {
+	        LostipOfferWall.setPlatformId(Contans.KE_KE_KEY);
+	        LostipOfferWall.init(this);
+        } catch (Exception e) {
+            MyToast.showCustomerToast("初始化数据失败");
+        }
+		
 
 	}
 

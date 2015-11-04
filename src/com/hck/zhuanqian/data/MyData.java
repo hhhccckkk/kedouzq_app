@@ -1,10 +1,5 @@
 package com.hck.zhuanqian.data;
 
-import java.io.IOException;
-
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-
 import android.text.TextUtils;
 
 import com.hck.zhuanqian.bean.Config;
@@ -19,7 +14,8 @@ public class MyData {
     public static final String key = "HCK123hck";
     private UserBean userBean;
     private ShareBean shareBean;
-
+    
+   
     public ShareBean getShareBean() {
         if (shareBean == null) {
             String share = MyPreferences.getString("share", null);

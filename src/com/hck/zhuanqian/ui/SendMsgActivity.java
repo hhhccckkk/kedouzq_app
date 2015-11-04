@@ -6,6 +6,7 @@ import com.hck.kedouzq.R;
 import com.hck.zhuanqian.bean.UserBean;
 import com.hck.zhuanqian.data.MyData;
 import com.hck.zhuanqian.net.Request;
+import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.view.MyToast;
 import com.hck.zhuanqian.view.Pdialog;
 
@@ -15,16 +16,20 @@ import android.view.View;
 import android.widget.EditText;
 
 public class SendMsgActivity extends BaseActivity {
-    private long uid;
+    private long uid, sendUserId;
     private String content;
     private EditText contentEditText;
-
+    private String userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_msg);
-        initTitle("给徒弟发信息");
+        userName=getIntent().getStringExtra("userName");
+        initTitle("给"+userName+"发信息");
+        // 接受这id;
         uid = getIntent().getLongExtra("uid", 0l);
+        
+        // 发送者id
         contentEditText = (EditText) findViewById(R.id.msg_content);
     }
 
@@ -41,6 +46,7 @@ public class SendMsgActivity extends BaseActivity {
         params.put("uid", uid + "");
         params.put("userName", userBean.getName());
         params.put("content", content);
+        params.put("sendUserId", userBean.getId()+"");
         Pdialog.showDialog(this, "消息发送中", true);
         Request.addMsg(params, new JsonHttpResponseHandler() {
             public void onFailure(Throwable error, String content) {

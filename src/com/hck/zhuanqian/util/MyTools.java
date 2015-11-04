@@ -44,17 +44,17 @@ public class MyTools {
         MyTools.context = context;
     }
 
-    public static int getScreenHeight() // ��ȡ��Ļ�߶�
+    public static int getScreenHeight()
     {
         if (context == null) {
-            Log.e("hck", TAG + "  getScreenHeight: " + "context ����Ϊ��");
+           
             return 800;
         }
         display = ((Activity) context).getWindowManager().getDefaultDisplay();
         return display.getHeight();
     }
 
-    public static int getScreenWidth() // ��ȡ��Ļ���
+    public static int getScreenWidth()
     {
         if (context == null) {
             return 480;
@@ -64,7 +64,7 @@ public class MyTools {
     }
 
     public static String getSDK() {
-        return android.os.Build.VERSION.SDK; // SDK��
+        return android.os.Build.VERSION.SDK; 
 
     }
 
@@ -88,20 +88,20 @@ public class MyTools {
         
     }
 
-    public long totalMemory(int type) // ��ȡ�ֻ��ڴ�
+    public long totalMemory(int type) 
     {
         Runtime myRun = Runtime.getRuntime();
         if (1 == type) {
-            return myRun.totalMemory() / 1024 / 1024; // ʹ�õ��ڴ�
-        } else if (2 == type) { // ����ڴ�
+            return myRun.totalMemory() / 1024 / 1024; 
+        } else if (2 == type) {
             return myRun.maxMemory() / 1024 / 1024;
-        } else if (3 == type) { // ʣ���ڴ�
+        } else if (3 == type) { 
             return myRun.freeMemory() / 1024 / 1024;
         }
         return 0;
     }
 
-    public static String getVerName(Context context) { // ��ȡ�汾����
+    public static String getVerName(Context context) {
         try {
             String pkName = context.getPackageName();
             String versionName = context.getPackageManager().getPackageInfo(pkName, 0).versionName;
@@ -124,24 +124,21 @@ public class MyTools {
     }
 
     public static boolean isNetworkAvailable(Context context) { // �ж����������Ƿ����
-        // ��ȡ�ֻ��������ӹ�����󣨰�����wi-fi,net�����ӵĹ��?
         ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivity == null)
             return false;
-        // ��ȡ�������ӹ���Ķ���
         NetworkInfo info = connectivity.getActiveNetworkInfo();
         if (info == null || !info.isConnected())
             return false;
-        // �жϵ�ǰ�����Ƿ��Ѿ�����
         return (info.getState() == NetworkInfo.State.CONNECTED);
     }
 
-    public static String trim(String str, int limit) { // �ַ������������ȡ
+    public static String trim(String str, int limit) { 
         String mStr = str.trim();
         return mStr.length() > limit ? mStr.substring(0, limit) : mStr;
     }
 
-    public static String getTel(Context context) { // ��ȡ�ֻ���룬�ܶ��ֻ��ȡ����
+    public static String getTel(Context context) { 
         TelephonyManager telManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (telManager != null) {
             return telManager.getLine1Number();
@@ -150,7 +147,7 @@ public class MyTools {
 
     }
 
-    public static String getMac(Context context) { // ��ȡʱ��mac��ַ
+    public static String getMac(Context context) { // ��ȡʱ��mac�ַ
         final WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         if (wifi != null) {
             WifiInfo info = wifi.getConnectionInfo();

@@ -70,10 +70,7 @@ public class YouMiActivity extends BaseActivity implements PointsEarnNotify {
 	}
 
 	public void startGetMoney(View view) {
-//		if (!getAirplaneMode()) {
-//			nt2();
-//			return;
-//		}
+
 		try {
 			OffersManager.getInstance(this).showOffersWall();
 

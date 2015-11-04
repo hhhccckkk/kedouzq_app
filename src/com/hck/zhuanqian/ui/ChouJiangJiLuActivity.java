@@ -56,14 +56,12 @@ public class ChouJiangJiLuActivity extends BaseActivity {
             };
 
             public void onFailure(Throwable error, String content) {
-                LogUtil.D("onFailure: " + content + error);
                 MyToast.showCustomerToast("网络异常获取数据失败");
             };
 
             @Override
             public void onSuccess(int statusCode, JSONObject response) {
                 super.onSuccess(statusCode, response);
-                LogUtil.D("onSuccess: " + response.toString());
                 try {
                     isOK = response.getBoolean("isok");
                     if (isOK) {
@@ -74,7 +72,6 @@ public class ChouJiangJiLuActivity extends BaseActivity {
                         MyToast.showCustomerToast("没有获取到数据"); 
                     }
                 } catch (Exception e) {
-                    LogUtil.D("cjcjccj: " + e.toString());
                 }
 
             }

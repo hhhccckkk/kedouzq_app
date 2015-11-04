@@ -1,6 +1,7 @@
 package com.hck.zhuanqian.ui;
 
 import com.hck.kedouzq.R;
+import com.hck.zhuanqian.data.Contans;
 import com.hck.zhuanqian.util.LogUtil;
 import com.hck.zhuanqian.util.MyPreferences;
 
@@ -28,10 +29,20 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         findViewById(R.id.more_fankui).setOnClickListener(this);
         findViewById(R.id.more_msg).setOnClickListener(this);
         findViewById(R.id.more_haoping).setOnClickListener(this);
+        findViewById(R.id.more_about_ra).setOnClickListener(this);
+
         msgView = (ImageView) findViewById(R.id.showMsg);
         boolean isShowMsg = MyPreferences.getBoolean("isShowMsg", false);
         if (isShowMsg) {
             showMsgTiShi(View.VISIBLE);
+        }
+        boolean hasMsg = MyPreferences.getBoolean(Contans.HAS_MSG, false);
+        if (hasMsg) {
+            showMsgTiShi(View.VISIBLE);
+            MyPreferences.saveBoolean(Contans.HAS_MSG, false);
+
+        } else {
+            showMsgTiShi(View.GONE);
         }
     }
 
@@ -58,7 +69,8 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         case R.id.more_haoping:
             startPinLunActivity();
             break;
-
+        case R.id.more_about_ra:
+            startActivity(HelpActivity.class);
         default:
             break;
         }

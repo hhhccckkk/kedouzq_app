@@ -50,12 +50,10 @@ public class ZhongYiActivity extends BaseActivity implements Integral {
 
     @Override
     public void retAddIntegral(String arg0, String arg1) {
-        LogUtil.D("retAddIntegral: " + arg0 + arg1);
     }
 
     @Override
     public void retCheckIntegral(String arg0, String arg1) {
-        LogUtil.D("retCheckIntegral: " + arg0 + arg1);
         try {
 
             if (arg0.equals("0")&& !arg1.equals("0")) {
@@ -75,7 +73,6 @@ public class ZhongYiActivity extends BaseActivity implements Integral {
 
     @Override
     public void retMinusIntegral(String arg0, String arg1) {
-        LogUtil.D("retMinusIntegral: " + arg0 + arg1);
     }
 
     @Override

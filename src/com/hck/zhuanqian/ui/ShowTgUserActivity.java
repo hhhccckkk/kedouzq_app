@@ -24,7 +24,7 @@ import com.hck.zhuanqian.net.Request;
 import com.hck.zhuanqian.util.JsonUtils;
 import com.hck.zhuanqian.util.LogUtil;
 
-public class ShowTgUserActivity extends BaseActivity implements SendMsgCallBack{
+public class ShowTgUserActivity extends BaseActivity implements SendMsgCallBack {
     private PullToRefreshListView listView;
     private int page = 1;
     private View view;
@@ -168,10 +168,11 @@ public class ShowTgUserActivity extends BaseActivity implements SendMsgCallBack{
 
     @Override
     public void sendMsg(TGUserBean userBean) {
-        LogUtil.D("sendMsgsendMsgsendMsgsendMsg");
-         Intent intent =new Intent();
-         intent.putExtra("uid", userBean.getUserId());
-         intent.setClass(this, SendMsgActivity.class);
-         startActivity(intent);
+        Intent intent = new Intent();
+        intent.putExtra("uid", userBean.getUserId());
+        intent.setClass(this, SendMsgActivity.class);
+        intent.putExtra("userName", userBean.getUserName());
+        startActivity(intent);
     }
+   
 }

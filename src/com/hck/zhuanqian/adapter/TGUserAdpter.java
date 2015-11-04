@@ -108,14 +108,12 @@ public class TGUserAdpter extends BaseAdapter {
 
             @Override
             public void onClick(View arg0) {
-                LogUtil.D("onClickonClickonClick");
                 try {
                     int pos = (int) arg0.getTag();
                     if (callBack != null) {
                         callBack.sendMsg(tgUserData.getTgUserDatas().get(pos));
                     }
                 } catch (Exception e) {
-                    LogUtil.D("Exception: "+e.toString());
 
                 }
 

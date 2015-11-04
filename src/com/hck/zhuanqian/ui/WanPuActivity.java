@@ -9,6 +9,7 @@ import cn.waps.UpdatePointsNotifier;
 
 import com.hck.kedouzq.R;
 import com.hck.zhuanqian.data.Contans;
+import com.hck.zhuanqian.view.MyToast;
 
 public class WanPuActivity extends BaseActivity {
     int point;
@@ -27,6 +28,7 @@ public class WanPuActivity extends BaseActivity {
             AppConnect.getInstance(Contans.KEY_WANPU, "qq", this);
             AppConnect.getInstance(this).showOffers(this);
         } catch (Exception e) {
+            MyToast.showCustomerToast("初始化数据失败");
         }
 
     }
@@ -96,7 +98,11 @@ public class WanPuActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppConnect.getInstance(this).close();
+        try {
+            AppConnect.getInstance(this).close();
+        } catch (Exception e) {
+        }
+       
     }
 
 }

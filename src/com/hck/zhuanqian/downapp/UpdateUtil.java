@@ -40,7 +40,6 @@ public class UpdateUtil {
             @Override
             public void onSuccess(int statusCode, JSONObject response) {
                 super.onSuccess(statusCode, response);
-                LogUtil.D("更新: onSuccess:" + response.toString());
 
                 try {
                     boolean isok = response.getBoolean("isok");
@@ -49,14 +48,12 @@ public class UpdateUtil {
                         callBack.backAppInfo(bAppInfoBean);
                     }
                 } catch (Exception e) {
-                    LogUtil.D("更新222: onSuccess:" + e.toString());
                 }
             }
 
             @Override
             public void onFailure(Throwable error, String content) {
                 super.onFailure(error, content);
-                LogUtil.D("更新: onFailure:" + content);
             }
         });
     }

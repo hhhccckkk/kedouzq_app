@@ -65,7 +65,6 @@ public class LeDianActivity extends BaseActivity {
                 int point = mWallAppUser.getBalance();
                 money = 0;
                 money = point;
-                LogUtil.D("»ý·Ö: " + mWallAppUser.getBalance());
                 if (money > 0) {
                     huaFeiPoint(point);
                 }

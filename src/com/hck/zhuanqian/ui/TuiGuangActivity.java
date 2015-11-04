@@ -76,7 +76,6 @@ public class TuiGuangActivity extends BaseActivity {
 	 */
 	private void getTuiGuangData() {
 		params = new RequestParams();
-		LogUtil.D("uid: "+MyData.getData().getUserBean().getId());
 		params.put("uid", MyData.getData().getUserBean().getId() + "");
 		params.put("page", page + "");
 		Request.getTG(new JsonHttpResponseHandler() {
@@ -86,13 +85,11 @@ public class TuiGuangActivity extends BaseActivity {
 			};
 
 			public void onFinish(String url) {
-				LogUtil.D("onFinish: " + url);
 				mLoadingView.setVisibility(View.GONE);
 				listView.onRefreshComplete();
 			};
 
 			public void onSuccess(int statusCode, org.json.JSONObject response) {
-				LogUtil.D("onSuccess: " + response.toString());
 				try {
 					isOK = response.getBoolean("isok");
 					if (isOK) {

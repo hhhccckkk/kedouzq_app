@@ -1,177 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@color/main_bg"
     android:orientation="vertical" >
 
-    <RelativeLayout
-        android:id="@+id/duihuan_qq"
-        android:layout_width="match_parent"
-        android:minHeight="130dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:layout_centerVertical="true"
-            android:id="@+id/duihuan_image1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:src="@drawable/duihuan_qq" />
-
-        <LinearLayout
-            android:layout_centerVertical="true"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@+id/duihuan_image1"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="兑换Q币"
-                android:textColor="#ff0000"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:text="1000金币=1Q币"
-                android:textColor="#666666"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:text="1Q币起兑换"
-                android:textColor="#666666"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-       
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:drawablePadding="5dp"
-            android:drawableRight="@drawable/list_ico_arrow"
-            android:gravity="center_vertical"
-            android:textColor="#898989"
-            android:textSize="13sp" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/duihuan_zfb"
-         android:layout_marginBottom="5dp"
-        android:layout_width="match_parent"
-       android:minHeight="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:layout_centerVertical="true"
-            android:id="@+id/duihuan_image2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:src="@drawable/duihuan_zhifubao" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/huise" />
-
-        <LinearLayout
-              android:layout_centerVertical="true"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@+id/duihuan_image2"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="兑换支付宝"
-                android:textColor="#ff0000"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:text="1000金币=1元"
-                android:textColor="#666666"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:text="1元起兑换"
-                android:textColor="#666666"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-       
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:drawablePadding="5dp"
-            android:drawableRight="@drawable/list_ico_arrow"
-            android:gravity="center_vertical"
-            android:textColor="#898989"
-            android:textSize="13sp" />
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/huise" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-       
-        android:src="@drawable/duihuan_list" />
-   
- <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/huise" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
         android:orientation="vertical" >
-
-        <ListView
-            android:id="@+id/dh_list"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:cacheColorHint="#00000000"
-            android:divider="@null" >
-        </ListView>
+<com.handmark.pulltorefresh.library.PullToRefreshListView
+             android:layout_margin="10dp"
+            xmlns:ptr="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/dhList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:listSelector="@null"
+            android:scrollbars="none"
+            ptr:ptrHeaderTextColor="@color/black" />
     </LinearLayout>
 
-</LinearLayout>
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+</FrameLayout>

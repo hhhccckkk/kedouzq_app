@@ -6,15 +6,26 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
         android:orientation="horizontal" >
-
+        <TextView 
+            android:visibility="gone"
+            android:gravity="center_vertical"
+            android:id="@+id/ph_num"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginLeft="15dp"
+            />
         <ImageView
+            android:layout_marginLeft="15dp"
             android:id="@+id/userTx"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_gravity="center_vertical"
             android:scaleType="fitXY" />
 
@@ -26,6 +37,8 @@
             android:orientation="vertical" >
 
             <TextView
+                android:singleLine="true"
+                android:ellipsize="end"
                 android:id="@+id/dh_text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,9 +46,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:paddingTop="3dp"
-                android:text="黄成科"
-                android:textColor="#666666"
-                android:textSize="16sp" />
+                android:textColor="@color/black"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/dh_text2"
@@ -46,11 +58,12 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="3dp"
                 android:text="兑换1个Q币"
-                android:textColor="#e55107"
+                android:textColor="#ff0000"
                 android:textSize="14sp" />
         </LinearLayout>
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/dh_text3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -58,7 +71,6 @@
             android:layout_weight="2"
             android:gravity="right"
             android:paddingRight="10dp"
-            android:text="2013-201"
             android:textColor="#666666"
             android:textSize="12sp" />
     </LinearLayout>

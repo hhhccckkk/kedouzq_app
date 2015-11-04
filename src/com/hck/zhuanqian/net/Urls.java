@@ -1,7 +1,7 @@
 package com.hck.zhuanqian.net;
 
 public class Urls {
-    public static String MAIN_HOST_URL = "http://zhuanqian.com";
+    public static String MAIN_HOST_URL = "http://101.200.233.157:8080/MyMoney/";
     /**
      * 增加新用户
      */
@@ -125,5 +125,27 @@ public class Urls {
      * 获取版本信息
      */
     public static final String GET_APP_INFO = "getInfoP";
+    /**
+     * 获取兑吧登录url.
+     */
+    public static final String GET_DuiBa_Login_URL = "getLoginUrl";
+    /**
+     * 推广用户排行
+     */
+    public static final String GET_TG_PAIHANG = "getTuiGuangP";
+    /**
+     * 赚钱排行
+     */
+    public static final String GET_MONEY_PAIHANG = "getZhuangQianPaiHangP";
+
+    /**
+     * 获取活动。
+     */
+    public static final String GET_HUODONG = "getHuoDongP";
+    
+    /**
+     * 活动练级
+     */
+    public static final String GET_HUODONG_URL="getHuoDongUrlP";
 
 }

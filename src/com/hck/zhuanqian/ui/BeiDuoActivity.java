@@ -84,7 +84,6 @@ public class BeiDuoActivity extends BaseActivity {
 
                 @Override
                 public void getFailed(int arg0) {
-                    LogUtil.D("getFailed: " + arg0);
                 }
             });
         } catch (Exception e) {

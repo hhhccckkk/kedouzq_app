@@ -38,7 +38,7 @@ public class KindActivity extends BaseActivity {
     }
 
     private void initView() {
-        initTitle("赚钱专区");
+        initTitle("免费获取金币换钱");
         listView = (ListView) findViewById(R.id.kind_listview);
         errorView = LayoutInflater.from(this).inflate(R.layout.error_view, null);
     }
@@ -133,10 +133,6 @@ public class KindActivity extends BaseActivity {
             break;
         case Contans.AD_BEIDUO:
             intent.setClass(this, BeiDuoActivity.class);
-            startActivity(intent);
-            break;
-        case Contans.AD_JIONG_YOU:
-            intent.setClass(this, JiongYouActivity.class);
             startActivity(intent);
             break;
         case Contans.AD_KEKE:
